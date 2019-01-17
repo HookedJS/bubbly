@@ -1,0 +1,27 @@
+{
+  "name": "bubbly-theme",
+  "author": "Brian Dombrowski <bdombro@gmail.com>",
+  "private": false,
+  "version": "0.0.1",
+  "scripts": {},
+  "devDependencies": {
+    "@types/googlemaps": "3.30.13",
+    "@types/markerclustererplus": "2.1.33",
+    "@types/react-big-calendar": "^0.20.2",
+    "@types/react-table": "^6.7.21"
+  },
+  "dependencies": {
+    "@material-ui/core": "3.1.1",
+    "@material-ui/icons": "3.0.1",
+    "chartist": "0.10.1",
+    "clappr": "^0.2.98",
+    "nouislider": "12.0.0",
+    "react-big-calendar": "0.20.1",
+    "react-bootstrap-sweetalert": "4.4.1",
+    "react-chartist": "0.13.1",
+    "react-google-maps": "9.4.5",
+    "react-jvectormap": "0.0.3",
+    "react-share": "^2.3.0",
+    "react-table": "6.8.6"
+  }
+}
