@@ -27,35 +27,35 @@ import ArtTrack from "@material-ui/icons/ArtTrack";
 import Language from "@material-ui/icons/Language";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Table from "~/themes/bubbly/src/components/modules/Table/Table";
-import Button from "~/themes/bubbly/src/components/modules/Buttons/Button";
-import Danger from "~/themes/bubbly/src/components/modules/Typography/Danger";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
-import CardIcon from "~/themes/bubbly/src/components/modules/Card/CardIcon";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardFooter from "~/themes/bubbly/src/components/modules/Card/CardFooter";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Table from "@bubbly/components/modules/Table/Table";
+import Button from "@bubbly/components/modules/Buttons/Button";
+import Danger from "@bubbly/components/modules/Typography/Danger";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
+import CardIcon from "@bubbly/components/modules/Card/CardIcon";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardFooter from "@bubbly/components/modules/Card/CardFooter";
 
 import {
   dailySalesChart,
   emailsSubscriptionChart,
   completedTasksChart
-} from "~/themes/bubbly/src/components/demo/var/charts";
+} from "@bubbly/components/demo/var/charts";
 
 import { DashboardStyle } from "./DashboardStyle";
 
-import priceImage1 from "~/themes/bubbly/src/components/demo/assets/img/card-2.jpeg";
-import priceImage2 from "~/themes/bubbly/src/components/demo/assets/img/card-3.jpeg";
-import priceImage3 from "~/themes/bubbly/src/components/demo/assets/img/card-1.jpeg";
+import priceImage1 from "@bubbly/components/demo/assets/img/card-2.jpeg";
+import priceImage2 from "@bubbly/components/demo/assets/img/card-3.jpeg";
+import priceImage3 from "@bubbly/components/demo/assets/img/card-1.jpeg";
 
-import us_flag from "~/themes/bubbly/src/components/demo/assets/img/flags/US.png";
-import de_flag from "~/themes/bubbly/src/components/demo/assets/img/flags/DE.png";
-import au_flag from "~/themes/bubbly/src/components/demo/assets/img/flags/AU.png";
-import gb_flag from "~/themes/bubbly/src/components/demo/assets/img/flags/GB.png";
-import ro_flag from "~/themes/bubbly/src/components/demo/assets/img/flags/RO.png";
-import br_flag from "~/themes/bubbly/src/components/demo/assets/img/flags/BR.png";
+import us_flag from "@bubbly/components/demo/assets/img/flags/US.png";
+import de_flag from "@bubbly/components/demo/assets/img/flags/DE.png";
+import au_flag from "@bubbly/components/demo/assets/img/flags/AU.png";
+import gb_flag from "@bubbly/components/demo/assets/img/flags/GB.png";
+import ro_flag from "@bubbly/components/demo/assets/img/flags/RO.png";
+import br_flag from "@bubbly/components/demo/assets/img/flags/BR.png";
 
 var mapData = {
   AU: 760,
@@ -177,42 +177,42 @@ class Dashboard extends React.Component {
                   <GridItem xs={12} sm={12} md={5}>
                     <Table
                       tableData={[
-                        [
+                        {cols: [
                           <img src={us_flag} alt="us_flag" />,
                           "USA",
                           "2.920",
                           "53.23%"
-                        ],
-                        [
+                        ]},
+                        {cols: [
                           <img src={de_flag} alt="us_flag" />,
                           "Germany",
                           "1.300",
                           "20.43%"
-                        ],
-                        [
+                        ]},
+                        {cols: [
                           <img src={au_flag} alt="us_flag" />,
                           "Australia",
                           "760",
                           "10.35%"
-                        ],
-                        [
+                        ]},
+                        {cols: [
                           <img src={gb_flag} alt="us_flag" />,
                           "United Kingdom",
                           "690",
                           "7.87%"
-                        ],
-                        [
+                        ]},
+                        {cols: [
                           <img src={ro_flag} alt="us_flag" />,
                           "Romania",
                           "600",
                           "5.94%"
-                        ],
-                        [
+                        ]},
+                        {cols: [
                           <img src={br_flag} alt="us_flag" />,
                           "Brasil",
                           "550",
                           "4.34%"
-                        ]
+                        ]}
                       ]}
                     />
                   </GridItem>

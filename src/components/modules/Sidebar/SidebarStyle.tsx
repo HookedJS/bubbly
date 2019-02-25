@@ -2,6 +2,7 @@
 // // // Sidebar styles
 // #############################
 
+
 import {
   drawerWidth,
   drawerMiniWidth,
@@ -15,9 +16,11 @@ import {
   warningColor,
   dangerColor,
   roseColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
 
-export const SidebarStyle = theme => ({
+export const SidebarStyle = (theme: Theme) => createStyles({
   drawerPaperRTL: {
     [theme.breakpoints.up("md")]: {
       left: "auto !important",
@@ -34,7 +37,7 @@ export const SidebarStyle = theme => ({
     top: "0",
     bottom: "0",
     left: "0",
-    zIndex: "1032",
+    zIndex: 1032,
     transitionProperty: "top, bottom, width",
     transitionDuration: ".2s, .2s, .35s",
     transitionTimingFunction: "linear, linear, ease",
@@ -55,7 +58,7 @@ export const SidebarStyle = theme => ({
       height: "100vh",
       right: "0",
       left: "auto",
-      zIndex: "1032",
+      zIndex: 1032,
       visibility: "visible",
       overflowY: "visible",
       borderTop: "none",
@@ -67,7 +70,7 @@ export const SidebarStyle = theme => ({
     },
     "&:before,&:after": {
       position: "absolute",
-      zIndex: "3",
+      zIndex: 3,
       width: "100%",
       height: "100%",
       content: '""',
@@ -79,18 +82,19 @@ export const SidebarStyle = theme => ({
     color: "#FFFFFF",
     "&:after": {
       background: "#000",
-      opacity: ".8"
+      opacity: .8
     }
   },
   blueBackground: {
     color: "#FFFFFF",
     "&:after": {
       background: "#00acc1",
-      opacity: ".93"
+      opacity: .93
     }
   },
   whiteBackground: {
     color: "#3C4858",
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     "&:after": {
       background: "#FFFFFF",
       opacity: ".93"
@@ -109,7 +113,7 @@ export const SidebarStyle = theme => ({
     margin: "0",
     display: "block",
     position: "relative",
-    zIndex: "4",
+    zIndex: 4,
     "&:after": {
       content: '""',
       position: "absolute",
@@ -142,13 +146,13 @@ export const SidebarStyle = theme => ({
     ...defaultFont,
     transition: "all 300ms linear",
     display: "block",
-    opacity: "1",
+    opacity: 1,
     transform: "translate3d(0px, 0, 0)",
     textTransform: "uppercase",
     padding: "5px 0px",
     fontSize: "18px",
     whiteSpace: "nowrap",
-    fontWeight: "400",
+    fontWeight: 400,
     lineHeight: "30px",
     overflow: "hidden",
     "&,&:hover,&:focus": {
@@ -159,7 +163,7 @@ export const SidebarStyle = theme => ({
     textAlign: "right"
   },
   logoNormalSidebarMini: {
-    opacity: "0",
+    opacity: 0,
     transform: "translate3d(-25px, 0, 0)"
   },
   logoNormalSidebarMiniRTL: {
@@ -172,7 +176,7 @@ export const SidebarStyle = theme => ({
   },
   background: {
     position: "absolute",
-    zIndex: "1",
+    zIndex: 1,
     height: "100%",
     width: "100%",
     display: "block",
@@ -242,7 +246,7 @@ export const SidebarStyle = theme => ({
     marginRight: "15px",
     textAlign: "center",
     verticalAlign: "middle",
-    opacity: "0.8"
+    opacity: 0.8
   },
   itemIconRTL: {
     float: "right",
@@ -256,7 +260,7 @@ export const SidebarStyle = theme => ({
     lineHeight: "30px",
     fontSize: "14px",
     transform: "translate3d(0px, 0, 0)",
-    opacity: "1",
+    opacity: 1,
     transition: "transform 300ms ease 0s, opacity 300ms ease 0s",
     position: "relative",
     display: "block",
@@ -272,7 +276,7 @@ export const SidebarStyle = theme => ({
   },
   itemTextMini: {
     transform: "translate3d(-25px, 0, 0)",
-    opacity: "0"
+    opacity: 0
   },
   itemTextMiniRTL: {
     transform: "translate3d(25px, 0, 0) !important"
@@ -336,7 +340,7 @@ export const SidebarStyle = theme => ({
     margin: "0",
     position: "relative",
     transform: "translateX(0px)",
-    opacity: "1",
+    opacity: 1,
     whiteSpace: "nowrap",
     display: "block",
     transition: "transform 300ms ease 0s, opacity 300ms ease 0s",
@@ -350,7 +354,7 @@ export const SidebarStyle = theme => ({
   },
   collapseItemTextMini: {
     transform: "translate3d(-25px, 0, 0)",
-    opacity: "0"
+    opacity: 0
   },
   caret: {
     marginTop: "13px",
@@ -436,7 +440,7 @@ export const SidebarStyle = theme => ({
     height: "calc(100vh - 75px)",
     overflow: "auto",
     width: "260px",
-    zIndex: "4",
+    zIndex: 4,
     overflowScrolling: "touch",
     transitionProperty: "top, bottom, width",
     transitionDuration: ".2s, .2s, .35s",
@@ -467,7 +471,7 @@ export const SidebarStyle = theme => ({
     height: "34px",
     overflow: "hidden",
     float: "left",
-    zIndex: "5",
+    zIndex: 5,
     marginRight: "11px",
     borderRadius: "50%",
     marginLeft: "23px",

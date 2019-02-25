@@ -2,6 +2,8 @@
 // // // Badge component styles
 // #############################
 
+import { createStyles } from "@material-ui/core/styles";
+
 import {
   primaryColor,
   warningColor,
@@ -10,15 +12,15 @@ import {
   infoColor,
   roseColor,
   grayColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const BadgeStyle = {
+export const BadgeStyle = createStyles({
   badge: {
     borderRadius: "12px",
     padding: "5px 12px",
     textTransform: "uppercase",
     fontSize: "10px",
-    fontWeight: "700",
+    fontWeight: 700,
     lineHeight: "1",
     color: "#fff",
     textAlign: "center",
@@ -46,4 +48,4 @@ export const BadgeStyle = {
   gray: {
     backgroundColor: grayColor
   }
-};
+});

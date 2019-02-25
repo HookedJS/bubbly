@@ -7,9 +7,12 @@ import {
   drawerMiniWidth,
   transition,
   containerFluid
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const SidebarStyleRtl = theme => ({
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
+
+export const SidebarStyleRtl = (theme: Theme) => createStyles({
   wrapper: {
     direction: "rtl",
     position: "relative",
@@ -41,6 +44,7 @@ export const SidebarStyleRtl = theme => ({
     padding: "30px 15px",
     minHeight: "calc(100% - 123px)"
   },
+  // @ts-ignore: Typescript gets confused about a CSSProperty
   container: { ...containerFluid },
   mainPanelSidebarMini: {
     [theme.breakpoints.up("md")]: {

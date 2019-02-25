@@ -11,7 +11,7 @@ import {
   roseColor,
   grayColor,
   cardTitle
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
 export const ChartsStyle = {
   cardTitle,

@@ -10,30 +10,30 @@ import Code from "@material-ui/icons/Code";
 import Cloud from "@material-ui/icons/Cloud";
 import FormatQuote from "@material-ui/icons/FormatQuote";
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Table from "~/themes/bubbly/src/components/modules/Table/Table";
-import Button from "~/themes/bubbly/src/components/modules/Buttons/Button";
-import Timeline from "~/themes/bubbly/src/components/modules/Timeline/Timeline";
-import Tabs from "~/themes/bubbly/src/components/modules/Tabs/Tabs";
-import Tasks from "~/themes/bubbly/src/components/modules/Tasks/Tasks";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
-import CardAvatar from "~/themes/bubbly/src/components/modules/Card/CardAvatar";
-import CardText from "~/themes/bubbly/src/components/modules/Card/CardText";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardFooter from "~/themes/bubbly/src/components/modules/Card/CardFooter";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Table from "@bubbly/components/modules/Table/Table";
+import Button from "@bubbly/components/modules/Buttons/Button";
+import Timeline from "@bubbly/components/modules/Timeline/Timeline";
+import Tabs from "@bubbly/components/modules/Tabs/Tabs";
+import Tasks from "@bubbly/components/modules/Tasks/Tasks";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
+import CardAvatar from "@bubbly/components/modules/Card/CardAvatar";
+import CardText from "@bubbly/components/modules/Card/CardText";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardFooter from "@bubbly/components/modules/Card/CardFooter";
 
 import {
   widgetStories,
   bugs,
   website,
   server
-} from "~/themes/bubbly/src/components/demo/var/general";
+} from "@bubbly/components/demo/var/general";
 
-import image from "~/themes/bubbly/src/components/demo/assets/img/faces/card-profile1-square.jpg";
+import image from "@bubbly/components/demo/assets/img/faces/card-profile1-square.jpg";
 
-import { cardTitle, roseColor } from "~/themes/bubbly/src/MainStyles";
+import { cardTitle, roseColor } from "@bubbly/MainStyles";
 
 const styles = {
   cardTitle,
@@ -105,14 +105,14 @@ class Widgets extends React.Component {
               </CardHeader>
               <CardBody>
                 <Table
-                  hover
+                  hover={true}
                   tableHeaderColor="warning"
                   tableHead={["ID", "Name", "Salary", "Country"]}
                   tableData={[
-                    ["1", "Dakota Rice", "$36,738", "Niger"],
-                    ["2", "Minerva Hooper", "$23,789", "Curaçao"],
-                    ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                    ["4", "Philip Chaney", "$38,735", "Korea, South"]
+                    {cols: ["1", "Dakota Rice", "$36,738", "Niger"]},
+                    {cols: ["2", "Minerva Hooper", "$23,789", "Curaçao"]},
+                    {cols: ["3", "Sage Rodriguez", "$56,142", "Netherlands"]},
+                    {cols: ["4", "Philip Chaney", "$38,735", "Korea, South"]},
                   ]}
                 />
               </CardBody>
@@ -125,7 +125,7 @@ class Widgets extends React.Component {
               tabs={[
                 {
                   tabName: "Bugs",
-                  tabIcon: BugReport,
+                  TabIcon: BugReport,
                   tabContent: (
                     <Tasks
                       checkedIndexes={[0, 3]}
@@ -136,7 +136,7 @@ class Widgets extends React.Component {
                 },
                 {
                   tabName: "Website",
-                  tabIcon: Code,
+                  TabIcon: Code,
                   tabContent: (
                     <Tasks
                       checkedIndexes={[0]}
@@ -147,7 +147,7 @@ class Widgets extends React.Component {
                 },
                 {
                   tabName: "Server",
-                  tabIcon: Cloud,
+                  TabIcon: Cloud,
                   tabContent: (
                     <Tasks
                       checkedIndexes={[1]}

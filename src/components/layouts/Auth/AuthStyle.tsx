@@ -1,4 +1,8 @@
-export const AuthStyle = theme => ({
+
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
+
+export const AuthStyle = (theme: Theme) => createStyles({
   wrapper: {
     height: "auto",
     minHeight: "100vh",
@@ -37,7 +41,7 @@ export const AuthStyle = theme => ({
       height: "100%",
       top: "0",
       left: "0",
-      zIndex: "2"
+      zIndex: 2
     }
   }
 });

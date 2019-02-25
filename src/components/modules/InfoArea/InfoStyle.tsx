@@ -2,6 +2,7 @@
 // // // Info component styles
 // #############################
 
+import { createStyles } from "@material-ui/core/styles";
 import {
   primaryColor,
   warningColor,
@@ -10,9 +11,9 @@ import {
   infoColor,
   roseColor,
   grayColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const InfoStyle = {
+export const InfoStyle = createStyles({
   infoArea: {
     maxWidth: "360px",
     margin: "0 auto",
@@ -64,4 +65,4 @@ export const InfoStyle = {
     marginTop: "0px",
     fontSize: "14px"
   }
-};
+});

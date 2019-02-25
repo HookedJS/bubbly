@@ -11,10 +11,10 @@ import FingerprintIcon from "@material-ui/icons/Fingerprint";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 // Layouts
-import AuthLayout from "~/themes/bubbly/src/components/layouts/Auth/Auth";
-import SidebarLayout from "~/themes/bubbly/src/components/layouts/Sidebar/Sidebar";
+import AuthLayout from "../components/layouts/Auth/Auth";
+import SidebarLayout from "../components/layouts/Sidebar/Sidebar";
 
-import { ErrorRow } from "~/themes/bubbly/src/components/rows/ErrorRow/ErrorRow";
+import { ErrorRow } from "../components/rows/ErrorRow/ErrorRow";
 
 export const ErrorComponent = (
   <SidebarLayout>
@@ -22,41 +22,38 @@ export const ErrorComponent = (
   </SidebarLayout>
 );
 
-export { LoadingRow as LoadingComponent } from "~/themes/bubbly/src/components/rows/LoadingRow/LoadingRow";
-
-// Normal Pages
-const Posts = React.lazy(() => import("~/themes/bubbly/src/components/pages/Posts/Posts"));
+export { LoadingRow as LoadingComponent } from "../components/rows/LoadingRow/LoadingRow";
 
 
 // Demo Pages
-const LoginDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Login/Login"));
-const RegisterDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Register/Register"));
-const LockScreenDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Lock/Lock"));
-const UserProfileDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/User/UserProfile"));
-const DashboardDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Dashboard/Dashboard"));
-const ButtonsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Buttons/Buttons"));
-const GridSystemDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Grid/GridSystem"));
-const PanelsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Panels/Panels"));
-const SweetAlertDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/SweetAlert/SweetAlert"));
-const NotificationsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Notifications/Notifications"));
-const IconsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Icons/Icons"));
-const TypographyDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Typography/Typography"));
-const RegularFormsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Forms/RegularForms"));
-const ExtendedFormsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Forms/ExtendedForms"));
-const ValidationFormsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Forms/ValidationForms"));
-const WizardDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Forms/Wizard"));
-const RegularTablesDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Tables/RegularTables"));
-const ExtendedTablesDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Tables/ExtendedTables"));
-const ReactTablesDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Tables/ReactTables"));
-const GoogleMapsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Maps/GoogleMaps"));
-const FullScreenMapDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Maps/FullScreenMap"));
-const VectorMapDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Maps/VectorMap"));
-const ChartsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Charts/Charts"));
-const CalendarDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Calendar/Calendar"));
-const WidgetsDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Widgets/Widgets"));
-const TimelineDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Timeline/Timeline"));
-const RTLSupportDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/RTLSupport/RTLSupport"));
-const PricingDemo = React.lazy(() => import("~/themes/bubbly/src/components/demo/pages/Pricing/Pricing"));
+const LoginDemo = React.lazy(() => import("../components/demo/pages/Login/Login"));
+const RegisterDemo = React.lazy(() => import("../components/demo/pages/Register/Register"));
+const LockScreenDemo = React.lazy(() => import("../components/demo/pages/Lock/Lock"));
+const UserProfileDemo = React.lazy(() => import("../components/demo/pages/User/UserProfile"));
+const DashboardDemo = React.lazy(() => import("../components/demo/pages/Dashboard/Dashboard"));
+const ButtonsDemo = React.lazy(() => import("../components/demo/pages/Buttons/Buttons"));
+const GridSystemDemo = React.lazy(() => import("../components/demo/pages/Grid/GridSystem"));
+const PanelsDemo = React.lazy(() => import("../components/demo/pages/Panels/Panels"));
+const SweetAlertDemo = React.lazy(() => import("../components/demo/pages/SweetAlert/SweetAlert"));
+const NotificationsDemo = React.lazy(() => import("../components/demo/pages/Notifications/Notifications"));
+const IconsDemo = React.lazy(() => import("../components/demo/pages/Icons/Icons"));
+const TypographyDemo = React.lazy(() => import("../components/demo/pages/Typography/Typography"));
+const RegularFormsDemo = React.lazy(() => import("../components/demo/pages/Forms/RegularForms"));
+const ExtendedFormsDemo = React.lazy(() => import("../components/demo/pages/Forms/ExtendedForms"));
+const FormsDemo = React.lazy(() => import("../components/demo/pages/Forms/Forms"));
+const WizardDemo = React.lazy(() => import("../components/demo/pages/Wizard/Wizard"));
+const RegularTablesDemo = React.lazy(() => import("../components/demo/pages/Tables/RegularTables"));
+const ExtendedTablesDemo = React.lazy(() => import("../components/demo/pages/Tables/ExtendedTables"));
+const ReactTablesDemo = React.lazy(() => import("../components/demo/pages/Tables/ReactTables"));
+const GoogleMapsDemo = React.lazy(() => import("../components/demo/pages/Maps/GoogleMaps"));
+const FullScreenMapDemo = React.lazy(() => import("../components/demo/pages/Maps/FullScreenMap"));
+const VectorMapDemo = React.lazy(() => import("../components/demo/pages/Maps/VectorMap"));
+const ChartsDemo = React.lazy(() => import("../components/demo/pages/Charts/Charts"));
+const CalendarDemo = React.lazy(() => import("../components/demo/pages/Calendar/Calendar"));
+const WidgetsDemo = React.lazy(() => import("../components/demo/pages/Widgets/Widgets"));
+const TimelineDemo = React.lazy(() => import("../components/demo/pages/Timeline/Timeline"));
+const RTLSupportDemo = React.lazy(() => import("../components/demo/pages/RTLSupport/RTLSupport"));
+const PricingDemo = React.lazy(() => import("../components/demo/pages/Pricing/Pricing"));
 
 export const DemoRoutes: {[key: string]: RouteListItem} = {
   BubblyRegisterDemo: {name: `Register`, path: `/bubbly/demo/register`, layout: AuthLayout, view: RegisterDemo, icon: PersonAddIcon},
@@ -76,7 +73,7 @@ export const DemoRoutes: {[key: string]: RouteListItem} = {
   BubblyTypographyDemo: {name: `Typography`, path: `/bubbly/demo/typography`, layout: SidebarLayout, view: TypographyDemo, icon: AppsIcon},
   BubblyRegularFormsDemo: {name: `Regular Forms`, path: `/bubbly/demo/regular-forms`, layout: SidebarLayout, view: RegularFormsDemo, icon: AppsIcon},
   BubblyExtendedFormsDemo: {name: `Extended Forms`, path: `/bubbly/demo/extended-forms`, layout: SidebarLayout, view: ExtendedFormsDemo, icon: AppsIcon},
-  BubblyValidationFormsDemo: {name: `Validation Forms`, path: `/bubbly/demo/validation-forms`, layout: SidebarLayout, view: ValidationFormsDemo, icon: AppsIcon},
+  BubblyFormsDemo: {name: `Forms`, path: `/bubbly/demo/forms`, layout: SidebarLayout, view: FormsDemo, icon: AppsIcon},
   BubblyWizardDemo: {name: `Wizard`, path: `/bubbly/demo/wizard`, layout: SidebarLayout, view: WizardDemo, icon: AppsIcon},
   BubblyRegularTablesDemo: {name: `Regular Tables`, path: `/bubbly/demo/regular-tables`, layout: SidebarLayout, view: RegularTablesDemo, icon: AppsIcon},
   BubblyExtendedTablesDemo: {name: `Extended Tables`, path: `/bubbly/demo/extended-tables`, layout: SidebarLayout, view: ExtendedTablesDemo, icon: AppsIcon},
@@ -90,5 +87,4 @@ export const DemoRoutes: {[key: string]: RouteListItem} = {
 };
 
 export const Routes: {[key: string]: RouteListItem} = {
-  Posts: {name: `Posts`, path: `/bubbly/posts`, layout: SidebarLayout, view: Posts, icon: AppsIcon},
 };

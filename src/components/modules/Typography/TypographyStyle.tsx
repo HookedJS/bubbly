@@ -2,6 +2,7 @@
 // // // Typography styles
 // #############################
 
+import { createStyles } from "@material-ui/core/styles";
 import {
   defaultFont,
   primaryColor,
@@ -9,9 +10,9 @@ import {
   successColor,
   warningColor,
   dangerColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const TypographyStyle = {
+export const TypographyStyle = createStyles({
   defaultFontStyle: {
     ...defaultFont,
     fontSize: "14px"
@@ -54,4 +55,4 @@ export const TypographyStyle = {
   dangerText: {
     color: dangerColor
   }
-};
+});

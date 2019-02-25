@@ -2,14 +2,18 @@
 // // // App styles
 // #############################
 
+
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
+
 import {
   drawerWidth,
   drawerMiniWidth,
   transition,
   containerFluid
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const SidebarStyle = theme => ({
+export const SidebarStyle = (theme: Theme) => createStyles({
   wrapper: {
     position: "relative",
     top: "0",
@@ -40,6 +44,7 @@ export const SidebarStyle = theme => ({
     padding: "30px 15px",
     minHeight: "calc(100vh - 123px)"
   },
+  // @ts-ignore: Typescript gets confused about a CSSProperty
   container: { ...containerFluid },
   map: {
     marginTop: "70px"

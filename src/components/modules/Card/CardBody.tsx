@@ -1,17 +1,11 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
+import ClassNames from "classnames";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
-// core components
 import { CardBodyStyle } from "./CardBodyStyle";
 
-function CardBody({ ...props }) {
-  const {
+export const CardBody = withStyles(CardBodyStyle)((
+  {
     classes,
     className,
     children,
@@ -24,8 +18,20 @@ function CardBody({ ...props }) {
     profile,
     calendar,
     ...rest
-  } = props;
-  const cardBodyClasses = classNames({
+  } : WithStyles<typeof CardBodyStyle> & {
+    children: React.ReactNode,
+    className?: string,
+    background?: boolean,
+    plain?: boolean,
+    formHorizontal?: boolean,
+    pricing?: boolean,
+    signup?: boolean,
+    color?: boolean,
+    profile?: boolean,
+    calendar?: boolean
+  }
+) => {
+  const cardBodyClasses = ClassNames({
     [classes.cardBody]: true,
     [classes.cardBodyBackground]: background,
     [classes.cardBodyPlain]: plain,
@@ -35,26 +41,26 @@ function CardBody({ ...props }) {
     [classes.cardBodyColor]: color,
     [classes.cardBodyProfile]: profile,
     [classes.cardBodyCalendar]: calendar,
-    [className]: className !== undefined
+    [className!]: className !== undefined
   });
   return (
     <div className={cardBodyClasses} {...rest}>
       {children}
     </div>
   );
-}
+});
 
-CardBody.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  background: PropTypes.bool,
-  plain: PropTypes.bool,
-  formHorizontal: PropTypes.bool,
-  pricing: PropTypes.bool,
-  signup: PropTypes.bool,
-  color: PropTypes.bool,
-  profile: PropTypes.bool,
-  calendar: PropTypes.bool
-};
+// CardBody.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   className: PropTypes.string,
+//   background: PropTypes.bool,
+//   plain: PropTypes.bool,
+//   formHorizontal: PropTypes.bool,
+//   pricing: PropTypes.bool,
+//   signup: PropTypes.bool,
+//   color: PropTypes.bool,
+//   profile: PropTypes.bool,
+//   calendar: PropTypes.bool
+// };
 
-export default withStyles(CardBodyStyle)(CardBody);
+export default CardBody;

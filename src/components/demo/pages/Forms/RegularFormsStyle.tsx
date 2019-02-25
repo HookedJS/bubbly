@@ -6,11 +6,11 @@ import {
   cardTitle,
   successColor,
   dangerColor
-} from "~/themes/bubbly/src/MainStyles";
-import { CustomCheckboxRadioSwitchStyle } from "~/themes/bubbly/src/components/modules/Form/CustomCheckboxRadioSwitchStyle";
+} from "@bubbly/MainStyles";
+import { CheckboxBlockStyle } from "@bubbly/components/modules/Form/CheckboxBlockStyle";
 
 export const RegularFormsStyle = {
-  ...CustomCheckboxRadioSwitchStyle,
+  ...CheckboxBlockStyle,
   cardIconTitle: {
     ...cardTitle,
     marginTop: "15px",

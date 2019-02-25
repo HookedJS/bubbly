@@ -7,12 +7,14 @@ import {
   defaultFont,
   cardTitle,
   roseColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
 
-export const PricingStyle = theme => ({
+export const PricingStyle = (theme: Theme) => createStyles({
   container: {
     ...container,
-    zIndex: "4",
+    zIndex: 4,
     [theme.breakpoints.down("sm")]: {
       paddingBottom: "100px"
     }

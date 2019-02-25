@@ -1,42 +1,47 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
+import ClassNames from "classnames";
 
-// material-ui components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 import {default as TabsDefault} from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-// core components
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
+import { SvgIconProps } from "@material-ui/core/SvgIcon";
+
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
 
 import { TabsStyle } from "./TabsStyle";
 
-class Tabs extends React.Component {
-  state = {
-    value: 0
-  };
+export const Tabs = withStyles(TabsStyle)((
+  {
+    classes,
+    headerColor = "info",
+    plainTabs = false,
+    tabs,
+    title,
+    rtlActive = false,
+  }
+  : WithStyles<typeof TabsStyle> & {
+    headerColor?: "warning" | "success" | "danger" | "info" | "primary" | "rose" | "gray",
+    plainTabs?: boolean,
+    tabs: {
+      TabIcon?: React.ComponentClass<SvgIconProps> | any,
+      tabName: string,
+      tabContent: React.ReactChild,
+    }[],
+    title?: string,
+    rtlActive?: boolean,
+  }
+) =>  {
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
-
-  render() {
-    const {
-      classes,
-      headerColor,
-      plainTabs,
-      tabs,
-      title,
-      rtlActive
-    } = this.props;
-    const cardTitle = classNames({
+  const [value, setValue] = React.useState(0);
+  
+    const cardTitle = ClassNames({
       [classes.cardTitle]: true,
       [classes.cardTitleRTL]: rtlActive
     });
+
+
     return (
       <Card plain={plainTabs}>
         <CardHeader color={headerColor} plain={plainTabs}>
@@ -44,20 +49,14 @@ class Tabs extends React.Component {
             <div className={cardTitle}>{title}</div>
           ) : null}
           <TabsDefault
-            value={this.state.value}
-            onChange={this.handleChange}
+            value={value}
+            onChange={(event, value) => setValue(value)}
             classes={{
               root: classes.tabsRoot,
               indicator: classes.displayNone
             }}
           >
             {tabs.map((prop, key) => {
-              var icon = {};
-              if (prop.tabIcon) {
-                icon = {
-                  icon: <prop.tabIcon />
-                };
-              }
               return (
                 <Tab
                   classes={{
@@ -69,7 +68,7 @@ class Tabs extends React.Component {
                   }}
                   key={key}
                   label={prop.tabName}
-                  {...icon}
+                  icon={prop.TabIcon ? <prop.TabIcon /> : undefined}
                 />
               );
             })}
@@ -77,37 +76,34 @@ class Tabs extends React.Component {
         </CardHeader>
         <CardBody>
           {tabs.map((prop, key) => {
-            if (key === this.state.value) {
-              return <div key={key}>{prop.tabContent}</div>;
-            }
-            return null;
+            return key === value ? <div key={key}>{prop.tabContent}</div> : null;
           })}
         </CardBody>
       </Card>
     );
-  }
-}
+  
+});
 
-Tabs.propTypes = {
-  classes: PropTypes.object.isRequired,
-  headerColor: PropTypes.oneOf([
-    "warning",
-    "success",
-    "danger",
-    "info",
-    "primary",
-    "rose"
-  ]),
-  title: PropTypes.string,
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      tabName: PropTypes.string.isRequired,
-      tabIcon: PropTypes.func,
-      tabContent: PropTypes.node.isRequired
-    })
-  ),
-  rtlActive: PropTypes.bool,
-  plainTabs: PropTypes.bool
-};
+// Tabs.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   headerColor: PropTypes.oneOf([
+//     "warning",
+//     "success",
+//     "danger",
+//     "info",
+//     "primary",
+//     "rose"
+//   ]),
+//   title: PropTypes.string,
+//   tabs: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       tabName: PropTypes.string.isRequired,
+//       TabIcon: PropTypes.func,
+//       tabContent: PropTypes.node.isRequired
+//     })
+//   ),
+//   rtlActive: PropTypes.bool,
+//   plainTabs: PropTypes.bool
+// };
 
-export default withStyles(TabsStyle)(Tabs);
+export default Tabs;

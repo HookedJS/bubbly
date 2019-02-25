@@ -2,7 +2,10 @@
 // // // Modal component styles
 // #############################
 
-export const ModalStyle = theme => ({
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
+
+export const ModalStyle = (theme: Theme) => createStyles({
   modalRoot: {
     overflow: "auto",
     alignItems: "unset",
@@ -41,9 +44,9 @@ export const ModalStyle = theme => ({
     background: "0 0",
     border: "0",
     fontSize: "inherit",
-    opacity: ".9",
+    opacity: .9,
     textShadow: "none",
-    fontWeight: "700",
+    fontWeight: 700,
     lineHeight: "1",
     float: "right"
   },

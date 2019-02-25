@@ -1,21 +1,24 @@
 /*eslint-disable*/
 import React from "react";
-import PropTypes from "prop-types";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import Hidden from "@material-ui/core/Hidden";
 
 // core components
-import Heading from "~/themes/bubbly/src/components/modules/Heading/Heading";
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
+import Heading from "@bubbly/components/modules/Heading/Heading";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
 
 import { IconsStyle } from "./IconsStyle";
 
-function Icons({ ...props }) {
+export const Icons = withStyles(IconsStyle)((
+  {
+    ...props
+  }
+) => {
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
@@ -63,10 +66,10 @@ function Icons({ ...props }) {
       </GridItem>
     </GridContainer>
   );
-}
+});
 
-Icons.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// Icons.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
-export default withStyles(IconsStyle)(Icons);
+export default Icons;

@@ -1,3 +1,4 @@
+import { createStyles } from "@material-ui/core/styles";
 import {
   warningCardHeader,
   successCardHeader,
@@ -5,9 +6,9 @@ import {
   infoCardHeader,
   primaryCardHeader,
   roseCardHeader
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const CardTextStyle = {
+export const CardTextStyle = createStyles({
   cardText: {
     float: "none",
     display: "inline-block",
@@ -22,5 +23,5 @@ export const CardTextStyle = {
   dangerCardHeader,
   infoCardHeader,
   primaryCardHeader,
-  roseCardHeader
-};
+  roseCardHeader,
+});

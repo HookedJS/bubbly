@@ -7,15 +7,15 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Assignment from "@material-ui/icons/Assignment";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Table from "~/themes/bubbly/src/components/modules/Table/Table";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
-import CardIcon from "~/themes/bubbly/src/components/modules/Card/CardIcon";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Table from "@bubbly/components/modules/Table/Table";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
+import CardIcon from "@bubbly/components/modules/Card/CardIcon";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
 
-import { cardTitle } from "~/themes/bubbly/src/MainStyles";
+import { cardTitle } from "@bubbly/MainStyles";
 
 const style = {
   customCardContentClass: {
@@ -46,12 +46,12 @@ function RegularTables({ ...props }) {
               tableHeaderColor="primary"
               tableHead={["Name", "Country", "City", "Salary"]}
               tableData={[
-                ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                ["Mason Porter", "Chile", "Gloucester", "$78,615"]
+                {cols: ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"]},
+                {cols: ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"]},
+                {cols: ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"]},
+                {cols: ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"]},
+                {cols: ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"]},
+                {cols: ["Mason Porter", "Chile", "Gloucester", "$78,615"]},
               ]}
               coloredColls={[3]}
               colorsColls={["primary"]}
@@ -72,27 +72,27 @@ function RegularTables({ ...props }) {
           </CardHeader>
           <CardBody plain>
             <Table
-              hover
+              hover={true}
               tableHead={["ID", "Name", "Salary", "Country", "City"]}
               tableData={[
-                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                [
+                {cols: ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"]},
+                {cols: ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"]},
+                {cols: ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"]},
+                {cols: [
                   "4",
                   "Philip Chaney",
                   "$38,735",
                   "Korea, South",
                   "Overland Park"
-                ],
-                [
+                ]},
+                {cols: [
                   "5",
                   "Doris Greene",
                   "$63,542",
                   "Malawi",
                   "Feldkirchen in Kärnten"
-                ],
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
+                ]},
+                {cols: ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]}
               ]}
             />
           </CardBody>
@@ -108,12 +108,12 @@ function RegularTables({ ...props }) {
           </CardHeader>
           <CardBody className={classes.customCardContentClass}>
             <Table
-              hover
+              hover={true}
               tableHead={["ID", "Name", "Salary", "Country", "City"]}
               tableData={[
                 {
                   color: "success",
-                  data: [
+                  cols: [
                     "1",
                     "Dakota Rice (Success)",
                     "$36,738",
@@ -121,10 +121,10 @@ function RegularTables({ ...props }) {
                     "Oud-Turnhout"
                   ]
                 },
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
+                {cols: ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"]},
                 {
                   color: "info",
-                  data: [
+                  cols: [
                     "3",
                     "Sage Rodriguez (Info)",
                     "$56,142",
@@ -132,16 +132,16 @@ function RegularTables({ ...props }) {
                     "Baileux"
                   ]
                 },
-                [
+                {cols: [
                   "4",
                   "Philip Chaney",
                   "$38,735",
                   "Korea, South",
                   "Overland Park"
-                ],
+                ]},
                 {
                   color: "danger",
-                  data: [
+                  cols: [
                     "5",
                     "Doris Greene (Danger)",
                     "$63,542",
@@ -149,10 +149,10 @@ function RegularTables({ ...props }) {
                     "Feldkirchen in Kärnten"
                   ]
                 },
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"],
+                {cols: ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]},
                 {
                   color: "warning",
-                  data: [
+                  cols: [
                     "7",
                     "Mike Chaney (Warning)",
                     "$38,735",

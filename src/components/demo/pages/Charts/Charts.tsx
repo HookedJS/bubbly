@@ -9,15 +9,15 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Timeline from "@material-ui/icons/Timeline";
 
 // core components
-import Heading from "~/themes/bubbly/src/components/modules/Heading/Heading";
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
+import Heading from "@bubbly/components/modules/Heading/Heading";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
 
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
-import CardIcon from "~/themes/bubbly/src/components/modules/Card/CardIcon";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardFooter from "~/themes/bubbly/src/components/modules/Card/CardFooter";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
+import CardIcon from "@bubbly/components/modules/Card/CardIcon";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardFooter from "@bubbly/components/modules/Card/CardFooter";
 
 import {
   roundedLineChart,
@@ -27,7 +27,7 @@ import {
   multipleBarsChart,
   colouredLinesChart,
   pieChart
-} from "~/themes/bubbly/src/components/demo/var/charts";
+} from "@bubbly/components/demo/var/charts";
 
 import { ChartsStyle } from "./ChartsStyle";
 

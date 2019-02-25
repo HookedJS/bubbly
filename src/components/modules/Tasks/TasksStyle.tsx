@@ -1,13 +1,14 @@
+import { createStyles } from "@material-ui/core/styles";
 import {
   defaultFont,
   primaryColor,
   dangerColor,
   tooltip
-} from "~/themes/bubbly/src/MainStyles";
-import { CustomCheckboxRadioSwitchStyle } from "~/themes/bubbly/src/components/modules/Form/CustomCheckboxRadioSwitchStyle";
+} from "@bubbly/MainStyles";
+import { CheckboxBlockStyle } from "@bubbly/components/modules/Form/CheckboxBlockStyle";
 
-export const TasksStyle = {
-  ...CustomCheckboxRadioSwitchStyle,
+export const TasksStyle = createStyles({
+  ...CheckboxBlockStyle,
   table: {
     marginBottom: "0"
   },
@@ -47,5 +48,6 @@ export const TasksStyle = {
     color: dangerColor,
     boxShadow: "none"
   },
+  // @ts-ignore: Typescript gets confused about a CSSProperty
   tooltip
-};
+});

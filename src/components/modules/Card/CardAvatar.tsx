@@ -1,17 +1,11 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
-// core components
+import ClassNames from "classnames";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
 import { CardAvatarStyle } from "./CardAvatarStyle";
 
-function CardAvatar({ ...props }) {
-  const {
+export const CardAvatar = withStyles(CardAvatarStyle)((
+  {
     classes,
     children,
     className,
@@ -20,29 +14,37 @@ function CardAvatar({ ...props }) {
     testimonial,
     testimonialFooter,
     ...rest
-  } = props;
-  const cardAvatarClasses = classNames({
+  }: WithStyles<typeof CardAvatarStyle> & {
+    children: React.ReactNode,
+    className?: string,
+    plain?: boolean,
+    profile?: boolean,
+    testimonial?: boolean,
+    testimonialFooter?: boolean,
+  }
+) => {
+  const cardAvatarClasses = ClassNames({
     [classes.cardAvatar]: true,
     [classes.cardAvatarProfile]: profile,
     [classes.cardAvatarPlain]: plain,
     [classes.cardAvatarTestimonial]: testimonial,
     [classes.cardAvatarTestimonialFooter]: testimonialFooter,
-    [className]: className !== undefined
+    [className!]: className !== undefined
   });
   return (
     <div className={cardAvatarClasses} {...rest}>
       {children}
     </div>
   );
-}
+});
 
-CardAvatar.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  profile: PropTypes.bool,
-  plain: PropTypes.bool,
-  testimonial: PropTypes.bool,
-  testimonialFooter: PropTypes.bool
-};
+// CardAvatar.propTypes = {
+//   children: PropTypes.node.isRequired,
+//   className: PropTypes.string,
+//   profile: PropTypes.bool,
+//   plain: PropTypes.bool,
+//   testimonial: PropTypes.bool,
+//   testimonialFooter: PropTypes.bool
+// };
 
-export default withStyles(CardAvatarStyle)(CardAvatar);
+export default CardAvatar;

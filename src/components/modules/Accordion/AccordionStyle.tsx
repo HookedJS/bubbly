@@ -1,9 +1,11 @@
-import { primaryColor } from "~/themes/bubbly/src/MainStyles";
+import { primaryColor } from "@bubbly/MainStyles";
+import { createStyles } from "@material-ui/core/styles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 
-export const AccordionStyle = theme => ({
+export const AccordionStyle = (theme: Theme) => createStyles({
   root: {
     flexGrow: 1,
-    marginBottom: "20px"
+    marginBottom: "20px",
   },
   expansionPanel: {
     boxShadow: "none",

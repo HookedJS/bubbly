@@ -1,3 +1,4 @@
+
 import {
   defaultFont,
   primaryColor,
@@ -12,14 +13,17 @@ import {
   dangerBoxShadow,
   roseColor,
   roseBoxShadow
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
 
-export const DropdownStyle = theme => ({
+export const DropdownStyle = (theme: Theme) => createStyles({
   popperClose: {
     pointerEvents: "none",
     display: "none !important"
   },
-  pooperNav: {
+  // @ts-ignore: temporary
+  popperNav: {
     [theme.breakpoints.down("sm")]: {
       position: "static !important",
       left: "unset !important",
@@ -66,7 +70,7 @@ export const DropdownStyle = theme => ({
     border: "0",
     boxShadow: "0 2px 5px 0 rgba(0, 0, 0, 0.26)",
     top: "100%",
-    zIndex: "1000",
+    zIndex: 1000,
     minWidth: "160px",
     padding: "5px 0",
     margin: "2px 0 0",
@@ -79,10 +83,10 @@ export const DropdownStyle = theme => ({
   menuList: {
     padding: "0"
   },
-  pooperResponsive: {
-    zIndex: "1200",
+  popperResponsive: {
+    zIndex: 1200,
     [theme.breakpoints.down("sm")]: {
-      zIndex: "1640",
+      zIndex: 1640,
       position: "static",
       float: "none",
       width: "auto",
@@ -103,7 +107,7 @@ export const DropdownStyle = theme => ({
     transition: "all 150ms linear",
     display: "block",
     clear: "both",
-    fontWeight: "400",
+    fontWeight: 400,
     height: "100%",
     color: "#333",
     whiteSpace: "nowrap"

@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 import Snack from "@material-ui/core/SnackbarContent";
 import IconButton from "@material-ui/core/IconButton";
 
@@ -11,13 +10,32 @@ import IconButton from "@material-ui/core/IconButton";
 import Close from "@material-ui/icons/Close";
 
 import { SnackbarContentStyle } from "./SnackbarContentStyle";
+import { SvgIconProps } from "~/themes/bubbly/node_modules/@material-ui/core/SvgIcon";
 
-function SnackbarContent({ ...props }) {
-  const { classes, message, color, close, icon } = props;
-  var action = [];
+export const SnackbarContent = withStyles(SnackbarContentStyle)((
+  {
+    classes,
+    message,
+    closeNotification,
+    color = "info",
+    close,
+    Icon,
+  }
+    : WithStyles<typeof SnackbarContentStyle> & {
+    message: React.ReactNode,
+    closeNotification: () => void,
+    color?: "warning" | "success" | "danger" | "info" | "primary" | "rose" | "gray",
+    close?: boolean,
+    Icon?: React.ComponentClass<SvgIconProps> | any,
+  }
+) => {
+
+  let action: React.ReactNode[] = [];
+
   const messageClasses = cx({
-    [classes.iconMessage]: icon !== undefined
+    [classes.iconMessage]: Icon !== undefined
   });
+
   if (close !== undefined) {
     action = [
       <IconButton
@@ -30,20 +48,18 @@ function SnackbarContent({ ...props }) {
       </IconButton>
     ];
   }
+
   const iconClasses = cx({
     [classes.icon]: classes.icon,
-    [classes.infoIcon]: color === "info",
-    [classes.successIcon]: color === "success",
-    [classes.warningIcon]: color === "warning",
-    [classes.dangerIcon]: color === "danger",
-    [classes.primaryIcon]: color === "primary",
-    [classes.roseIcon]: color === "rose"
+    // @ts-ignore: Ignore missing signature
+    [classes[color + "Icon"]]: true,
   });
+
   return (
     <Snack
       message={
         <div>
-          {icon !== undefined ? <props.icon className={iconClasses} /> : null}
+          {Icon !== undefined ? <Icon className={iconClasses} /> : null}
           <span className={messageClasses}>{message}</span>
         </div>
       }
@@ -54,25 +70,25 @@ function SnackbarContent({ ...props }) {
       action={action}
     />
   );
-}
+});
 
-SnackbarContent.defaultProps = {
-  color: "info"
-};
+// SnackbarContent.defaultProps = {
+//   color: "info"
+// };
+//
+// SnackbarContent.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   message: PropTypes.node.isRequired,
+//   color: PropTypes.oneOf([
+//     "info",
+//     "success",
+//     "warning",
+//     "danger",
+//     "primary",
+//     "rose"
+//   ]),
+//   close: PropTypes.bool,
+//   Icon: PropTypes.func
+// };
 
-SnackbarContent.propTypes = {
-  classes: PropTypes.object.isRequired,
-  message: PropTypes.node.isRequired,
-  color: PropTypes.oneOf([
-    "info",
-    "success",
-    "warning",
-    "danger",
-    "primary",
-    "rose"
-  ]),
-  close: PropTypes.bool,
-  icon: PropTypes.func
-};
-
-export default withStyles(SnackbarContentStyle)(SnackbarContent);
+export default SnackbarContent;

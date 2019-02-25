@@ -15,20 +15,20 @@ import Add from "@material-ui/icons/Add";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Table from "~/themes/bubbly/src/components/modules/Table/Table";
-import Button from "~/themes/bubbly/src/components/modules/Buttons/Button";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardIcon from "~/themes/bubbly/src/components/modules/Card/CardIcon";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Table from "@bubbly/components/modules/Table/Table";
+import Button from "@bubbly/components/modules/Buttons/Button";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardIcon from "@bubbly/components/modules/Card/CardIcon";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
 
 import { ExtendedTablesStyle } from "./ExtendedTablesStyle";
 
-import product1 from "~/themes/bubbly/src/components/demo/assets/img/product1.jpg";
-import product2 from "~/themes/bubbly/src/components/demo/assets/img/product2.jpg";
-import product3 from "~/themes/bubbly/src/components/demo/assets/img/product3.jpg";
+import product1 from "@bubbly/components/demo/assets/img/product1.jpg";
+import product2 from "@bubbly/components/demo/assets/img/product2.jpg";
+import product3 from "@bubbly/components/demo/assets/img/product3.jpg";
 
 class ExtendedTables extends React.Component {
   constructor(props) {
@@ -119,39 +119,39 @@ class ExtendedTables extends React.Component {
                   "Actions"
                 ]}
                 tableData={[
-                  [
+                  {cols: [
                     "1",
                     "Andrew Mike",
                     "Develop",
                     "2013",
                     "€ 99,225",
                     fillButtons
-                  ],
-                  ["2", "John Doe", "Design", "2012", "€ 89,241", roundButtons],
-                  [
+                  ]},
+                  {cols: ["2", "John Doe", "Design", "2012", "€ 89,241", roundButtons]},
+                  {cols: [
                     "3",
                     "Alex Mike",
                     "Design",
                     "2010",
                     "€ 92,144",
                     simpleButtons
-                  ],
-                  [
+                  ]},
+                  {cols: [
                     "4",
                     "Mike Monday",
                     "Marketing",
                     "2013",
                     "€ 49,990",
                     roundButtons
-                  ],
-                  [
+                  ]},
+                  {cols: [
                     "5",
                     "Paul Dickens",
                     "Communication",
                     "2015",
                     "€ 69,201",
                     fillButtons
-                  ]
+                  ]}
                 ]}
                 customCellClasses={[
                   classes.center,
@@ -190,7 +190,7 @@ class ExtendedTables extends React.Component {
                   "Amount"
                 ]}
                 tableData={[
-                  [
+                  {cols: [
                     "1",
                     <Checkbox
                       className={classes.positionAbsolute}
@@ -208,8 +208,8 @@ class ExtendedTables extends React.Component {
                     "25",
                     "€ 49",
                     "€ 1,225"
-                  ],
-                  [
+                  ]},
+                  {cols: [
                     "2",
                     <Checkbox
                       className={classes.positionAbsolute}
@@ -227,8 +227,8 @@ class ExtendedTables extends React.Component {
                     "30",
                     "€ 10",
                     "€ 300"
-                  ],
-                  [
+                  ]},
+                  {cols: [
                     "3",
                     <Checkbox
                       className={classes.positionAbsolute}
@@ -246,8 +246,8 @@ class ExtendedTables extends React.Component {
                     "50",
                     "€ 10.99",
                     "€ 109"
-                  ],
-                  [
+                  ]},
+                  {cols: [
                     "4",
                     <Checkbox
                       className={classes.positionAbsolute}
@@ -265,8 +265,8 @@ class ExtendedTables extends React.Component {
                     "10",
                     "€ 499.00",
                     "€ 4,990"
-                  ],
-                  [
+                  ]},
+                  {cols: [
                     "5",
                     <Checkbox
                       className={classes.positionAbsolute}
@@ -284,8 +284,8 @@ class ExtendedTables extends React.Component {
                     "10",
                     "€ 599.00",
                     "€ 5,999"
-                  ],
-                  { total: true, colspan: "5", amount: "€12,999" }
+                  ]},
+                  { kind: "total", colspan: 5, amount: "€12,999" },
                 ]}
                 customCellClasses={[
                   classes.center,
@@ -324,7 +324,7 @@ class ExtendedTables extends React.Component {
                   ""
                 ]}
                 tableData={[
-                  [
+                  {cols: [
                     <div className={classes.imgContainer}>
                       <img src={product1} alt="..." className={classes.img} />
                     </div>,
@@ -369,8 +369,8 @@ class ExtendedTables extends React.Component {
                     <Button simple className={classes.actionButton}>
                       <Close className={classes.icon} />
                     </Button>
-                  ],
-                  [
+                  ]},
+                  {cols: [
                     <div className={classes.imgContainer}>
                       <img src={product2} alt="..." className={classes.img} />
                     </div>,
@@ -413,8 +413,8 @@ class ExtendedTables extends React.Component {
                     <Button simple className={classes.actionButton}>
                       <Close className={classes.icon} />
                     </Button>
-                  ],
-                  [
+                  ]},
+                  {cols: [
                     <div className={classes.imgContainer}>
                       <img src={product3} alt="..." className={classes.img} />
                     </div>,
@@ -459,10 +459,10 @@ class ExtendedTables extends React.Component {
                     <Button simple className={classes.actionButton}>
                       <Close className={classes.icon} />
                     </Button>
-                  ],
+                  ]},
                   {
-                    total: true,
-                    colspan: "5",
+                    kind: "total",
+                    colspan: 5,
                     amount: (
                       <span>
                         <small>€</small>2,346
@@ -470,8 +470,8 @@ class ExtendedTables extends React.Component {
                     )
                   },
                   {
-                    purchase: true,
-                    colspan: "6",
+                    kind: "purchase",
+                    colspan: 6,
                     col: {
                       colspan: 2,
                       text: (

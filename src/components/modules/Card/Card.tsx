@@ -1,17 +1,13 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
+import ClassNames from "classnames";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
-// core components
 import { CardStyle } from "./CardStyle";
+import { CardProps } from "@material-ui/core/Card";
 
-function Card({ ...props }) {
-  const {
+
+export const Card = withStyles(CardStyle)((
+  {
     classes,
     className,
     children,
@@ -27,8 +23,20 @@ function Card({ ...props }) {
     chart,
     login,
     ...rest
-  } = props;
-  const cardClasses = classNames({
+  }
+  : WithStyles<typeof CardStyle> & CardProps & {
+    plain?: boolean,
+    profile?: any,
+    blog?: any,
+    background?: any,
+    pricing?: any,
+    product?: any,
+    testimonial?: any,
+    chart?: any,
+    login?: any,
+  }
+) => {
+  const cardClasses = ClassNames({
     [classes.card]: true,
     [classes.cardPlain]: plain,
     [classes.cardProfile]: profile || testimonial,
@@ -37,41 +45,41 @@ function Card({ ...props }) {
     [classes.cardBackground]: background,
     [classes.cardPricingColor]:
       (pricing && color !== undefined) || (pricing && background !== undefined),
-    [classes[color]]: color,
+    [classes[color!]]: color,
     [classes.cardPricing]: pricing,
     [classes.cardProduct]: product,
     [classes.cardChart]: chart,
     [classes.cardLogin]: login,
-    [className]: className !== undefined
+    [className!]: className !== undefined
   });
   return (
     <div className={cardClasses} {...rest}>
       {children}
     </div>
   );
-}
+});
 
-Card.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  plain: PropTypes.bool,
-  profile: PropTypes.bool,
-  blog: PropTypes.bool,
-  raised: PropTypes.bool,
-  background: PropTypes.bool,
-  pricing: PropTypes.bool,
-  testimonial: PropTypes.bool,
-  color: PropTypes.oneOf([
-    "primary",
-    "info",
-    "success",
-    "warning",
-    "danger",
-    "rose"
-  ]),
-  product: PropTypes.bool,
-  chart: PropTypes.bool,
-  login: PropTypes.bool
-};
+// Card.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   className: PropTypes.string,
+//   plain: PropTypes.bool,
+//   profile: PropTypes.bool,
+//   blog: PropTypes.bool,
+//   raised: PropTypes.bool,
+//   background: PropTypes.bool,
+//   pricing: PropTypes.bool,
+//   testimonial: PropTypes.bool,
+//   color: PropTypes.oneOf([
+//     "primary",
+//     "info",
+//     "success",
+//     "warning",
+//     "danger",
+//     "rose"
+//   ]),
+//   product: PropTypes.bool,
+//   chart: PropTypes.bool,
+//   login: PropTypes.bool
+// };
 
-export default withStyles(CardStyle)(Card);
+export default Card;

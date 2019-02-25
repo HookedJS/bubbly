@@ -1,8 +1,9 @@
 // ##############################
 // // // Button Group styles
 // #############################
+import { createStyles } from "@material-ui/core/styles";
 
-export const ButtonGroupStyle = {
+export const ButtonGroupStyle = createStyles({
   buttonGroup: {
     position: "relative",
     margin: "10px 1px",
@@ -16,7 +17,7 @@ export const ButtonGroupStyle = {
     position: "relative",
     float: "left",
     "&:hover": {
-      zIndex: "2"
+      zIndex: 2
     }
   },
   middleButton: {
@@ -25,7 +26,7 @@ export const ButtonGroupStyle = {
     position: "relative",
     float: "left",
     "&:hover": {
-      zIndex: "2"
+      zIndex: 2
     }
   },
   lastButton: {
@@ -33,7 +34,7 @@ export const ButtonGroupStyle = {
     borderBottomLeftRadius: "0",
     margin: "0",
     "&:hover": {
-      zIndex: "2"
+      zIndex: 2
     }
   }
-};
+});

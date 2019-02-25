@@ -1,13 +1,15 @@
-export const CardBodyStyle = {
+import { createStyles } from "@material-ui/core/styles";
+
+export const CardBodyStyle = createStyles({
   cardBody: {
     padding: "0.9375rem 20px",
     flex: "1 1 auto",
-    WebkitBoxFlex: "1",
+    WebkitBoxFlex: 1,
     position: "relative"
   },
   cardBodyBackground: {
     position: "relative",
-    zIndex: "2",
+    zIndex: 2,
     minHeight: "280px",
     paddingTop: "40px",
     paddingBottom: "40px",
@@ -48,4 +50,4 @@ export const CardBodyStyle = {
   cardBodyCalendar: {
     padding: "0px !important"
   }
-};
+});

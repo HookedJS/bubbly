@@ -2,12 +2,14 @@
 // // // LoginPage view styles
 // #############################
 
-import { container, cardTitle } from "~/themes/bubbly/src/MainStyles";
+import { container, cardTitle } from "@bubbly/MainStyles";
+import { createStyles } from "@material-ui/core/styles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 
-export const LoginStyle = theme => ({
+export const LoginStyle = (theme: Theme) => createStyles({
   container: {
     ...container,
-    zIndex: "4",
+    zIndex: 4,
     [theme.breakpoints.down("sm")]: {
       paddingBottom: "100px"
     }
@@ -36,7 +38,7 @@ export const LoginStyle = theme => ({
     color: "#555"
   },
   cardHidden: {
-    opacity: "0",
+    opacity: 0,
     transform: "translate3d(0, -60px, 0)"
   },
   cardHeader: {

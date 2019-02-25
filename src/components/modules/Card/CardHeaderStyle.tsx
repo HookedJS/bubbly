@@ -1,3 +1,4 @@
+import { createStyles } from "@material-ui/core/styles";
 import {
   warningCardHeader,
   successCardHeader,
@@ -5,13 +6,14 @@ import {
   infoCardHeader,
   primaryCardHeader,
   roseCardHeader
-} from "~/themes/bubbly/src/MainStyles";
-export const CardHeaderStyle = {
+} from "@bubbly/MainStyles";
+export const CardHeaderStyle = createStyles({
   cardHeader: {
     padding: "0.75rem 1.25rem",
     marginBottom: "0",
     borderBottom: "none",
     background: "transparent",
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     zIndex: "3 !important",
     "&$cardHeaderPlain,&$cardHeaderImage,&$cardHeaderContact,&$cardHeaderSignup,&$cardHeaderIcon,&$cardHeaderStats,&$warningCardHeader,&$successCardHeader,&$dangerCardHeader,&$infoCardHeader,&$primaryCardHeader,&$roseCardHeader": {
       margin: "0 15px",
@@ -69,7 +71,7 @@ export const CardHeaderStyle = {
   cardHeaderImage: {
     position: "relative",
     padding: "0",
-    zIndex: "1",
+    zIndex: 1,
     "& img": {
       width: "100%",
       borderRadius: "6px",
@@ -157,4 +159,4 @@ export const CardHeaderStyle = {
       ...roseCardHeader
     }
   }
-};
+});

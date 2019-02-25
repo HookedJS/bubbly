@@ -1,8 +1,6 @@
-// import {
-//
-// } from "@styles/jss/main";
+import { createStyles } from "@material-ui/core/styles";
 
-export const CardStyle = {
+export const CardStyle = createStyles({
   card: {
     border: "0",
     marginBottom: "30px",
@@ -40,7 +38,7 @@ export const CardStyle = {
     textAlign: "center",
     "&:after": {
       position: "absolute",
-      zIndex: "1",
+      zIndex: 1,
       width: "100%",
       height: "100%",
       display: "block",
@@ -96,6 +94,7 @@ export const CardStyle = {
     }
   },
   cardPricingColor: {
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     "& ul li": {
       color: "#fff",
       borderColor: "rgba(255,255,255,0.3)",
@@ -160,4 +159,4 @@ export const CardStyle = {
     transform: "translate3d(0, 0, 0)",
     transition: "all 300ms linear"
   }
-};
+});

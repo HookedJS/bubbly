@@ -2,13 +2,15 @@
 // // // LockScreenPage view styles
 // #############################
 
-import { cardTitle, container } from "~/themes/bubbly/src/MainStyles";
+import { cardTitle, container } from "@bubbly/MainStyles";
+import { createStyles } from "@material-ui/core/styles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 
-export const LockStyle = theme => ({
+export const LockStyle = (theme: Theme) => createStyles({
   cardTitle,
   container: {
     ...container,
-    zIndex: "4",
+    zIndex: 4,
     [theme.breakpoints.down("sm")]: {
       paddingBottom: "100px"
     }
@@ -22,7 +24,7 @@ export const LockStyle = theme => ({
     transition: "all 300ms linear"
   },
   cardHidden: {
-    opacity: "0",
+    opacity: 0,
     transform: "translate3d(0, -60px, 0)"
   },
   cardAvatar: {

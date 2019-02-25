@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 
 // @material-ui/core components
@@ -11,7 +10,11 @@ import { FooterStyle } from "./FooterStyle";
 
 import { Link } from "react-router-dom";
 
-function Footer({ ...props }) {
+export const Footer = withStyles(FooterStyle)((
+  {
+    ...props
+  }
+) => {
   const { classes, fluid, white, rtlActive } = props;
   var container = cx({
     [classes.container]: !fluid,
@@ -27,6 +30,10 @@ function Footer({ ...props }) {
     [classes.block]: true,
     [classes.whiteColor]: white
   });
+
+  // @ts-ignore: Temporary
+  const year = new Date().getYear();
+
   return (
     <footer className={classes.footer}>
       <div className={container}>
@@ -55,7 +62,7 @@ function Footer({ ...props }) {
           </List>
         </div>
         <p className={classes.right}>
-          &copy; {1900 + new Date().getYear()}{" "}
+          &copy; {1900 + year}{" "}
           <Link to="/" className={anchor}>
             {rtlActive ? "توقيت الإبداعية" : "Benevolent Tech"}
           </Link>
@@ -66,13 +73,13 @@ function Footer({ ...props }) {
       </div>
     </footer>
   );
-}
+});
 
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired,
-  fluid: PropTypes.bool,
-  white: PropTypes.bool,
-  rtlActive: PropTypes.bool
-};
+// Footer.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   fluid: PropTypes.bool,
+//   white: PropTypes.bool,
+//   rtlActive: PropTypes.bool
+// };
 
-export default withStyles(FooterStyle)(Footer);
+export default Footer;

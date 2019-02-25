@@ -1,23 +1,43 @@
 import React from "react";
 import cx from "classnames";
-import PropTypes from "prop-types";
 
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
+import { SvgIconProps } from "@material-ui/core/SvgIcon";
 
-// core components
-import Badge from "~/themes/bubbly/src/components/modules/Badge/Badge";
+import Badge from "@bubbly/components/modules/Badge/Badge";
 
 import { TimelineStyle } from "./TimelineStyle";
 
-function Timeline({ ...props }) {
-  const { classes, stories, simple } = props;
+export type TimelineStory = {
+  inverted?: boolean,
+  badgeColor?: "warning" | "success" | "danger" | "info" | "primary" | "rose" | "gray",
+  BadgeIcon?: React.ComponentClass<SvgIconProps> | any,
+  title?: React.ReactChild,
+  titleColor?: "warning" | "success" | "danger" | "info" | "primary" | "rose" | "gray",
+  footerTitle?: string,
+  body: React.ReactChild,
+  footer?: React.ReactChild,
+}
+
+export const Timeline = withStyles(TimelineStyle)((
+  {
+    classes,
+    stories,
+    simple = false,
+  }
+  : WithStyles<typeof TimelineStyle> & {
+    stories: TimelineStory[],
+    simple?: boolean,
+  }
+) => {
+
   const timelineClass =
     classes.timeline +
     " " +
     cx({
       [classes.timelineSimple]: simple
     });
+
   return (
     <ul className={timelineClass}>
       {stories.map((prop, key) => {
@@ -31,16 +51,16 @@ function Timeline({ ...props }) {
         const timelineBadgeClasses =
           classes.timelineBadge +
           " " +
-          classes[prop.badgeColor] +
+          classes[prop.badgeColor!] +
           " " +
           cx({
             [classes.timelineSimpleBadge]: simple
           });
         return (
           <li className={classes.item} key={key}>
-            {prop.badgeIcon ? (
+            {prop.BadgeIcon ? (
               <div className={timelineBadgeClasses}>
-                <prop.badgeIcon className={classes.badgeIcon} />
+                <prop.BadgeIcon className={classes.badgeIcon} />
               </div>
             ) : null}
             <div className={panelClasses}>
@@ -63,12 +83,12 @@ function Timeline({ ...props }) {
       })}
     </ul>
   );
-}
+});
 
-Timeline.propTypes = {
-  classes: PropTypes.object.isRequired,
-  stories: PropTypes.arrayOf(PropTypes.object).isRequired,
-  simple: PropTypes.bool
-};
+// Timeline.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   stories: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   simple: PropTypes.bool
+// };
 
-export default withStyles(TimelineStyle)(Timeline);
+export default Timeline;

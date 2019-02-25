@@ -8,22 +8,22 @@ import InputLabel from "@material-ui/core/InputLabel";
 import PermIdentity from "@material-ui/icons/PermIdentity";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Button from "~/themes/bubbly/src/components/modules/Buttons/Button";
-import CustomInput from "~/themes/bubbly/src/components/modules/CustomInput/CustomInput";
-import Clearfix from "~/themes/bubbly/src/components/modules/Clearfix/Clearfix";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
-import CardIcon from "~/themes/bubbly/src/components/modules/Card/CardIcon";
-import CardAvatar from "~/themes/bubbly/src/components/modules/Card/CardAvatar";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Button from "@bubbly/components/modules/Buttons/Button";
+import InputBlock from "@bubbly/components/modules/Form/InputBlock";
+import Clearfix from "@bubbly/components/modules/Clearfix/Clearfix";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
+import CardIcon from "@bubbly/components/modules/Card/CardIcon";
+import CardAvatar from "@bubbly/components/modules/Card/CardAvatar";
 
 import { UserProfileStyles } from "./UserProfileStyles";
 
-import avatar from "~/themes/bubbly/src/components/demo/assets/img/faces/marc.jpg";
+import avatar from "@bubbly/components/demo/assets/img/faces/marc.jpg";
 
-function UserProfile(props) {
+export const UserProfile = withStyles(UserProfileStyles)((props) => {
   const { classes } = props;
   return (
     <div>
@@ -41,7 +41,7 @@ function UserProfile(props) {
             <CardBody>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={5}>
-                  <CustomInput
+                  <InputBlock
                     labelText="Company (disabled)"
                     id="company-disabled"
                     formControlProps={{
@@ -53,7 +53,7 @@ function UserProfile(props) {
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={3}>
-                  <CustomInput
+                  <InputBlock
                     labelText="Username"
                     id="username"
                     formControlProps={{
@@ -62,7 +62,7 @@ function UserProfile(props) {
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
+                  <InputBlock
                     labelText="Email address"
                     id="email-address"
                     formControlProps={{
@@ -73,7 +73,7 @@ function UserProfile(props) {
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
+                  <InputBlock
                     labelText="First Name"
                     id="first-name"
                     formControlProps={{
@@ -82,7 +82,7 @@ function UserProfile(props) {
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
-                  <CustomInput
+                  <InputBlock
                     labelText="Last Name"
                     id="last-name"
                     formControlProps={{
@@ -93,7 +93,7 @@ function UserProfile(props) {
               </GridContainer>
               <GridContainer>
                 <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
+                  <InputBlock
                     labelText="City"
                     id="city"
                     formControlProps={{
@@ -102,7 +102,7 @@ function UserProfile(props) {
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
+                  <InputBlock
                     labelText="Country"
                     id="country"
                     formControlProps={{
@@ -111,7 +111,7 @@ function UserProfile(props) {
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
-                  <CustomInput
+                  <InputBlock
                     labelText="Postal Code"
                     id="postal-code"
                     formControlProps={{
@@ -123,7 +123,7 @@ function UserProfile(props) {
               <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
                   <InputLabel style={{ color: "#AAAAAA" }}>About me</InputLabel>
-                  <CustomInput
+                  <InputBlock
                     labelText="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."
                     id="about-me"
                     formControlProps={{
@@ -167,6 +167,6 @@ function UserProfile(props) {
       </GridContainer>
     </div>
   );
-}
+});
 
-export default withStyles(UserProfileStyles)(UserProfile);
+export default UserProfile;

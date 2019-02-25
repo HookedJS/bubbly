@@ -1,19 +1,26 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
+import ClassNames from "classnames";
 
-// material-ui components
-import withStyles from "@material-ui/core/styles/withStyles";
-import Button from "@material-ui/core/Button";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
+import CoreButton from "@material-ui/core/Button";
+import {ButtonProps} from "@material-ui/core/Button";
 
 import { ButtonStyle } from "./ButtonStyle";
 
-function RegularButton({ ...props }) {
-  const {
-    classes,
-    color,
+export interface ButtonPropsExt extends Omit<ButtonProps, 'color'> {
+  round?: boolean,
+  simple?: boolean,
+  block?: boolean,
+  link?: string,
+  justIcon?: boolean,
+  muiClasses?: any,
+  color?: "primary" | "info" | "success" | "warning" | "danger" | "rose" | "white" | "gray" | "twitter" | "facebook" | "google" | "linkedin" | "pinterest" | "youtube" | "tumblr" | "github" | "behance" | "dribbble" | "reddit" | "transparent" | string,
+}
+
+export const Button = withStyles(ButtonStyle)((
+  {
+    classes ,
+    color = "primary",
     round,
     children,
     fullWidth,
@@ -26,11 +33,15 @@ function RegularButton({ ...props }) {
     className,
     muiClasses,
     ...rest
-  } = props;
-  const btnClasses = classNames({
+  }
+  : WithStyles<typeof ButtonStyle> & ButtonPropsExt
+) => {
+  const btnClasses = ClassNames({
     [classes.button]: true,
-    [classes[size]]: size,
-    [classes[color]]: color,
+    // @ts-ignore: ignore undeclared id attribute
+    [classes[size!]]: size,
+    // @ts-ignore: ignore undeclared id attribute
+    [classes[color!]]: color,
     [classes.round]: round,
     [classes.fullWidth]: fullWidth,
     [classes.disabled]: disabled,
@@ -38,48 +49,48 @@ function RegularButton({ ...props }) {
     [classes.block]: block,
     [classes.link]: link,
     [classes.justIcon]: justIcon,
-    [className]: className
+    [className!]: className
   });
   return (
-    <Button {...rest} classes={muiClasses} className={btnClasses}>
+    <CoreButton {...rest} classes={muiClasses} className={btnClasses}>
       {children}
-    </Button>
+    </CoreButton>
   );
-}
+});
 
-RegularButton.propTypes = {
-  classes: PropTypes.object.isRequired,
-  color: PropTypes.oneOf([
-    "primary",
-    "info",
-    "success",
-    "warning",
-    "danger",
-    "rose",
-    "white",
-    "twitter",
-    "facebook",
-    "google",
-    "linkedin",
-    "pinterest",
-    "youtube",
-    "tumblr",
-    "github",
-    "behance",
-    "dribbble",
-    "reddit",
-    "transparent"
-  ]),
-  size: PropTypes.oneOf(["sm", "lg"]),
-  simple: PropTypes.bool,
-  round: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  disabled: PropTypes.bool,
-  block: PropTypes.bool,
-  link: PropTypes.bool,
-  justIcon: PropTypes.bool,
-  className: PropTypes.string,
-  muiClasses: PropTypes.object
-};
+// RegularButton.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   color: PropTypes.oneOf([
+//     "primary",
+//     "info",
+//     "success",
+//     "warning",
+//     "danger",
+//     "rose",
+//     "white",
+//     "twitter",
+//     "facebook",
+//     "google",
+//     "linkedin",
+//     "pinterest",
+//     "youtube",
+//     "tumblr",
+//     "github",
+//     "behance",
+//     "dribbble",
+//     "reddit",
+//     "transparent"
+//   ]),
+//   size: PropTypes.oneOf(["sm", "lg"]),
+//   simple: PropTypes.bool,
+//   round: PropTypes.bool,
+//   fullWidth: PropTypes.bool,
+//   disabled: PropTypes.bool,
+//   block: PropTypes.bool,
+//   link: PropTypes.bool,
+//   justIcon: PropTypes.bool,
+//   className: PropTypes.string,
+//   muiClasses: PropTypes.object
+// };
 
-export default withStyles(ButtonStyle)(RegularButton);
+export default Button;

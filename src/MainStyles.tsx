@@ -4,14 +4,9 @@
  * Bubbly theme
  =========================================================
 
- * Product Page: https://briandombrowski.info
- * Copyright 2018 Brian Dombrowski (https://briandombrowski.info)
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
  */
+
+import { createStyles } from "@material-ui/core/styles";
 
 // ##############################
 // // // Variables - Styles that are used on more than one component
@@ -80,7 +75,7 @@ export const card = {
 
 export const defaultFont = {
   fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-  fontWeight: "300",
+  fontWeight: 300,
   lineHeight: "1.5em"
 };
 
@@ -217,23 +212,23 @@ export const tooltip = {
 export const title = {
   color: "#3C4858",
   textDecoration: "none",
-  fontWeight: "300",
-  marginTop: "30px",
-  marginBottom: "25px",
-  minHeight: "32px",
+  fontWeight: 300,
+  marginTop: 30,
+  marginBottom: 25,
+  minHeight: 32,
   fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
   "& small": {
     color: "#777",
     fontSize: "65%",
-    fontWeight: "400",
-    lineHeight: "1"
+    fontWeight: 400,
+    lineHeight: 1,
   }
 };
 
 export const cardTitle = {
   ...title,
-  marginTop: "0",
-  marginBottom: "3px",
+  marginTop: 0,
+  marginBottom: 3,
   minHeight: "auto",
   "& a": {
     ...title,

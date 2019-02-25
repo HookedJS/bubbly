@@ -1,17 +1,29 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
 import { InfoStyle } from "./InfoStyle";
+import { SvgIconProps } from "~/themes/bubbly/node_modules/@material-ui/core/SvgIcon";
 
-function InfoArea({ ...props }) {
-  const { classes, title, description, iconColor } = props;
+export const InfoArea = withStyles(InfoStyle)((
+  {
+    classes,
+    Icon,
+    title,
+    description,
+    iconColor="gray"
+  }
+  : WithStyles<typeof InfoStyle> & {
+    Icon: React.ComponentClass<SvgIconProps> | any,
+    title: string,
+    description: string,
+    iconColor: "warning" | "success" | "danger" | "info" | "primary" | "rose" | "gray",
+  }
+) => {
   return (
     <div className={classes.infoArea}>
       <div className={classes.iconWrapper + " " + classes[iconColor]}>
-        <props.icon className={classes.icon} />
+        <Icon className={classes.icon} />
       </div>
       <div className={classes.descriptionWrapper}>
         <h4 className={classes.title}>{title}</h4>
@@ -19,26 +31,26 @@ function InfoArea({ ...props }) {
       </div>
     </div>
   );
-}
+});
 
-InfoArea.defaultProps = {
-  iconColor: "gray"
-};
+// InfoArea.defaultProps = {
+//   iconColor: "gray"
+// };
 
-InfoArea.propTypes = {
-  classes: PropTypes.object.isRequired,
-  icon: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  iconColor: PropTypes.oneOf([
-    "primary",
-    "warning",
-    "danger",
-    "success",
-    "info",
-    "rose",
-    "gray"
-  ])
-};
+// InfoArea.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   icon: PropTypes.func.isRequired,
+//   title: PropTypes.string.isRequired,
+//   description: PropTypes.string.isRequired,
+//   iconColor: PropTypes.oneOf([
+//     "primary",
+//     "warning",
+//     "danger",
+//     "success",
+//     "info",
+//     "rose",
+//     "gray"
+//   ])
+// };
 
-export default withStyles(InfoStyle)(InfoArea);
+export default InfoArea;

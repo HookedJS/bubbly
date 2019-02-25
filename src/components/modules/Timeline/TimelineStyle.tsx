@@ -2,14 +2,18 @@
 // // // Timeline component styles
 // #############################
 
+
 import {
   infoColor,
   primaryColor,
   successColor,
   dangerColor,
   warningColor
-} from "~/themes/bubbly/src/MainStyles";
-export const TimelineStyle = theme => ({
+} from "@bubbly/MainStyles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
+
+export const TimelineStyle = (theme: Theme) => createStyles({
   timeline: {
     [theme.breakpoints.down("sm")]: {
       "&:before": {
@@ -63,7 +67,7 @@ export const TimelineStyle = theme => ({
     top: "16px",
     left: "50%",
     marginLeft: "-24px",
-    zIndex: "100",
+    zIndex: 100,
     borderTopRightRadius: "50%",
     borderTopLeftRadius: "50%",
     borderBottomRightRadius: "50%",
@@ -101,6 +105,7 @@ export const TimelineStyle = theme => ({
     width: "24px",
     height: "51px"
   },
+  // @ts-ignore: Typescript gets confused about a CSSProperty
   timelinePanel: {
     [theme.breakpoints.down("sm")]: {
       float: "right !important",
@@ -179,13 +184,13 @@ export const TimelineStyle = theme => ({
     lineHeight: "21px"
   },
   timelineFooter: {
-    zIndex: "1000",
+    zIndex: 1000,
     position: "relative",
     float: "left"
   },
   footerTitle: {
     color: "#333333",
-    fontWeight: "400",
+    fontWeight: 400,
     margin: "10px 0px 0px"
   },
   footerLine: {

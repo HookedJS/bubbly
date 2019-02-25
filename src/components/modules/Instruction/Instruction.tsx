@@ -1,33 +1,41 @@
 import React from "react";
-import PropTypes from "prop-types";
 import cx from "classnames";
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
 
 import { InstructionStyle } from "./InstructionStyle";
 
-function Instruction({ ...props }) {
-  const {
+export const Instruction = withStyles(InstructionStyle)((
+  {
     classes,
     title,
     text,
     image,
     className,
     imageClassName,
-    imageAlt
-  } = props;
+    imageAlt='...',
+  }
+  : WithStyles<typeof InstructionStyle> & {
+    className?: string,
+    title: string,
+    text: React.ReactNode | string,
+    image: string,
+    imageAlt?: string,
+    imageClassName?: string,
+  }
+) => {
   const instructionClasses = cx({
     [classes.instruction]: true,
-    [className]: className !== undefined
+    [className!]: className !== undefined
   });
   const pictureClasses = cx({
     [classes.picture]: true,
-    [imageClassName]: imageClassName !== undefined
+    [imageClassName!]: imageClassName !== undefined
   });
   return (
     <div className={instructionClasses}>
@@ -44,20 +52,20 @@ function Instruction({ ...props }) {
       </GridContainer>
     </div>
   );
-}
+});
 
-Instruction.defaultProps = {
-  imageAlt: "..."
-};
+// Instruction.defaultProps = {
+//   imageAlt: "..."
+// };
 
-Instruction.propTypes = {
-  classes: PropTypes.object.isRequired,
-  title: PropTypes.node.isRequired,
-  text: PropTypes.node.isRequired,
-  image: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string,
-  className: PropTypes.string,
-  imageClassName: PropTypes.string
-};
+// Instruction.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   title: PropTypes.node.isRequired,
+//   text: PropTypes.node.isRequired,
+//   image: PropTypes.string.isRequired,
+//   imageAlt: PropTypes.string,
+//   className: PropTypes.string,
+//   imageClassName: PropTypes.string
+// };
 
-export default withStyles(InstructionStyle)(Instruction);
+export default Instruction;

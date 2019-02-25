@@ -1,8 +1,9 @@
 // ##############################
 // // // Heading component styles
 // #############################
+import { createStyles } from "@material-ui/core/styles";
 
-export const HeadingStyle = {
+export const HeadingStyle = createStyles({
   heading: {
     marginBottom: "30px"
   },
@@ -23,4 +24,4 @@ export const HeadingStyle = {
   category: {
     margin: "0 0 10px"
   }
-};
+});

@@ -1,22 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
 import { TypographyStyle } from "./TypographyStyle";
 
-function Primary({ ...props }) {
-  const { classes, children } = props;
+export const Primary = withStyles(TypographyStyle)((
+  {
+    classes ,
+    children
+  }
+    : WithStyles<typeof TypographyStyle> & {
+    children: React.ReactChild,
+  }
+) => {
   return (
     <div className={classes.defaultFontStyle + " " + classes.primaryText}>
       {children}
     </div>
   );
-}
+});
 
-Primary.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// Primary.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
-export default withStyles(TypographyStyle)(Primary);
+export default Primary;

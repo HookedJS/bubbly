@@ -1,10 +1,11 @@
-import { primaryColor, primaryBoxShadow } from "~/themes/bubbly/src/MainStyles";
+import { createStyles } from "@material-ui/core/styles";
+import { primaryColor, primaryBoxShadow } from "@bubbly/MainStyles";
 
-export const CustomSelectStyle = {
+export const CustomSelectStyle = createStyles({
   select: {
     padding: "12px 0 7px",
     fontSize: ".75rem",
-    fontWeight: "400",
+    fontWeight: 400,
     lineHeight: "1.42857",
     textDecoration: "none",
     textTransform: "uppercase",
@@ -69,7 +70,7 @@ export const CustomSelectStyle = {
     transition: "all 150ms linear",
     display: "block",
     clear: "both",
-    fontWeight: "400",
+    fontWeight: 400,
     lineHeight: "2",
     whiteSpace: "nowrap",
     color: "#333",
@@ -101,7 +102,7 @@ export const CustomSelectStyle = {
       height: "5px",
       borderLeft: "2px solid currentColor",
       transform: "rotate(-45deg)",
-      opacity: "1",
+      opacity: 1,
       color: "#3c4858",
       position: "absolute",
       content: "''",
@@ -110,7 +111,7 @@ export const CustomSelectStyle = {
     }
   },
   selectPaper: {
-    boxSizing: "borderBox",
+    boxSizing: "border-box",
     borderRadius: "4px",
     padding: "0",
     minWidth: "100%",
@@ -125,4 +126,4 @@ export const CustomSelectStyle = {
     backgroundColor: "transparent",
     maxHeight: "266px"
   }
-};
+});

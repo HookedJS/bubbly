@@ -1,5 +1,7 @@
-import { cardTitle } from "~/themes/bubbly/src/MainStyles";
-export const UserProfileStyles = {
+import { cardTitle } from "@bubbly/MainStyles";
+import { createStyles } from "@material-ui/core/styles";
+
+export const UserProfileStyles = createStyles({
   cardTitle,
   cardIconTitle: {
     ...cardTitle,
@@ -21,4 +23,4 @@ export const UserProfileStyles = {
   updateProfileButton: {
     float: "right"
   }
-};
+});

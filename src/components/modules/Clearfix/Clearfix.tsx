@@ -1,10 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-// mterial-ui components
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const style = {
+import { createStyles } from "@material-ui/core/styles";
+
+const style = createStyles({
   clearfix: {
     "&:after,&:before": {
       display: "table",
@@ -14,15 +14,15 @@ const style = {
       clear: "both"
     }
   }
-};
+});
 
-function Clearfix({ ...props }) {
+export const Clearfix = withStyles(style)(({ ...props }) => {
   const { classes } = props;
   return <div className={classes.clearfix} />;
-}
+});
 
-Clearfix.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// Clearfix.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
-export default withStyles(style)(Clearfix);
+export default Clearfix;

@@ -2,9 +2,9 @@
 // // // Dashboard View styles
 // #############################
 
-import { successColor, tooltip, cardTitle } from "~/themes/bubbly/src/MainStyles";
+import { successColor, tooltip, cardTitle } from "@bubbly/MainStyles";
 
-import { HoverCardStyle } from "~/themes/bubbly/src/components/modules/Card/HoverCardStyle";
+import { HoverCardStyle } from "@bubbly/components/modules/Card/HoverCardStyle";
 
 export const DashboardStyle = {
   ...HoverCardStyle,

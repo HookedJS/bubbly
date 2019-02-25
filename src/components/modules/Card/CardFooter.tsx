@@ -1,19 +1,14 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
+import ClassNames from "classnames";
+// import PropTypes from "prop-types";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
-// core components
 import { CardFooterStyle } from "./CardFooterStyle";
 
-function CardFooter({ ...props }) {
-  const {
+const CardFooter = withStyles(CardFooterStyle)((
+  {
     classes,
-    className,
+    className='',
     children,
     plain,
     profile,
@@ -23,8 +18,20 @@ function CardFooter({ ...props }) {
     chart,
     product,
     ...rest
-  } = props;
-  const cardFooterClasses = classNames({
+  }
+  : WithStyles<typeof CardFooterStyle> & {
+    children: React.ReactNode,
+    className?: string,
+    plain?: boolean,
+    profile?: boolean,
+    pricing?: boolean,
+    testimonial?: boolean,
+    stats?: boolean,
+    chart?: boolean,
+    product?: boolean,
+  }
+) => {
+  const cardFooterClasses = ClassNames({
     [classes.cardFooter]: true,
     [classes.cardFooterPlain]: plain,
     [classes.cardFooterProfile]: profile || testimonial,
@@ -39,18 +46,18 @@ function CardFooter({ ...props }) {
       {children}
     </div>
   );
-}
+});
 
-CardFooter.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  plain: PropTypes.bool,
-  profile: PropTypes.bool,
-  pricing: PropTypes.bool,
-  testimonial: PropTypes.bool,
-  stats: PropTypes.bool,
-  chart: PropTypes.bool,
-  product: PropTypes.bool
-};
+// CardFooter.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   className: PropTypes.string,
+//   plain: PropTypes.bool,
+//   profile: PropTypes.bool,
+//   pricing: PropTypes.bool,
+//   testimonial: PropTypes.bool,
+//   stats: PropTypes.bool,
+//   chart: PropTypes.bool,
+//   product: PropTypes.bool
+// };
 
-export default withStyles(CardFooterStyle)(CardFooter);
+export default CardFooter;

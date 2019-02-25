@@ -1,44 +1,50 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
 // core components
-import PageHeader from "~/themes/bubbly/src/components/sections/Header/PageHeader";
-import Footer from "~/themes/bubbly/src/components/sections/Footer/Footer";
+import PageHeader from "@bubbly/components/sections/HeaderFullWidth/HeaderFullWidth";
+import Footer from "@bubbly/components/sections/Footer/Footer";
 
 import { AuthStyle } from "./AuthStyle";
 
-import bgImage from "~/themes/bubbly/src/components/demo/assets/img/register.jpeg";
+import bgImage from "@bubbly/components/demo/assets/img/register.jpeg";
 
-import { HeaderLinks } from "var/routing";
+import { BubblyAuthHeaderLinks } from "~/var/config";
 
-class Auth extends React.Component {
-  componentDidMount() {
-    document.body.style.overflow = "unset";
+const Auth = (
+  {
+    classes,
+    children,
+    ...rest
   }
-  render() {
-    const { classes, ...rest } = this.props;
-    return (
-      <div>
-        <PageHeader {...rest} links={HeaderLinks} />
-        <div className={classes.wrapper} ref="wrapper">
-          <div
-            className={classes.fullPage}
-            style={{ backgroundImage: "url(" + bgImage + ")" }}
-          >
-            {this.props.children}
-            <Footer white />
-          </div>
+  : WithStyles<typeof AuthStyle> & {
+    children: React.ReactNode
+  }
+) => {
+
+  // React.useEffect(() => {document.body.style.overflow = "unset";}, [false]);
+
+  return (
+    <div>
+      <PageHeader {...rest} links={BubblyAuthHeaderLinks}/>
+      <div className={classes.wrapper} ref="wrapper">
+        <div
+          className={classes.fullPage}
+          style={{ backgroundImage: "url(" + bgImage + ")" }}
+        >
+          {children}
+          <Footer white/>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
 
-Auth.propTypes = {
-  classes: PropTypes.object.isRequired
 };
 
-export default withStyles(AuthStyle)(Auth);
+// Auth.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
+
+export default withStyles(AuthStyle)(Auth) as unknown as React.ComponentClass;

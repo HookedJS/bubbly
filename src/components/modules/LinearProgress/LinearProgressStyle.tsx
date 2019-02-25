@@ -2,6 +2,8 @@
 // // // LinearProgress component styles
 // #############################
 
+import { createStyles } from "@material-ui/core/styles";
+
 import {
   primaryColor,
   warningColor,
@@ -10,9 +12,9 @@ import {
   infoColor,
   roseColor,
   grayColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const LinearProgressStyle = {
+export const LinearProgressStyle = createStyles({
   root: {
     height: "4px",
     marginBottom: "20px",
@@ -63,4 +65,4 @@ export const LinearProgressStyle = {
   grayBackground: {
     background: "rgba(221, 221, 221, 0.2)"
   }
-};
+});

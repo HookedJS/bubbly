@@ -1,25 +1,32 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
 import { TypographyStyle } from "./TypographyStyle";
 
-function Quote({ ...props }) {
-  const { classes, text, author } = props;
+export const Quote = withStyles(TypographyStyle)((
+  {
+    classes ,
+    text,
+    author,
+  }
+    : WithStyles<typeof TypographyStyle> & {
+    text: React.ReactChild,
+    author: React.ReactChild,
+  }
+) => {
   return (
     <blockquote className={classes.defaultFontStyle + " " + classes.quote}>
       <p className={classes.quoteText}>{text}</p>
       <small className={classes.quoteAuthor}>{author}</small>
     </blockquote>
   );
-}
+});
 
-Quote.propTypes = {
-  classes: PropTypes.object.isRequired,
-  text: PropTypes.node,
-  author: PropTypes.node
-};
+// Quote.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   text: PropTypes.node,
+//   author: PropTypes.node
+// };
 
-export default withStyles(TypographyStyle)(Quote);
+export default Quote;

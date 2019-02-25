@@ -2,6 +2,8 @@
 // // // NavPills component style
 // #############################
 
+
+
 import {
   roseColor,
   primaryColor,
@@ -9,9 +11,11 @@ import {
   successColor,
   warningColor,
   dangerColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
 
-export const NavPillsStyle = theme => ({
+export const NavPillsStyle = (theme: Theme) => createStyles({
   root: {
     marginTop: "20px",
     paddingLeft: "0",
@@ -44,14 +48,14 @@ export const NavPillsStyle = theme => ({
     padding: "10px 15px",
     color: "#555555",
     height: "auto",
-    opacity: "1",
+    opacity: 1,
     maxWidth: "100%",
     margin: "0 5px"
   },
   pillsWithIcons: {
     borderRadius: "4px"
   },
-  tabIcon: {
+  TabIcon: {
     width: "30px",
     height: "30px",
     display: "block",
@@ -59,6 +63,7 @@ export const NavPillsStyle = theme => ({
   },
   horizontalPills: {
     width: "100%",
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     float: "none !important",
     "& + button": {
       margin: "10px 0"
@@ -72,7 +77,7 @@ export const NavPillsStyle = theme => ({
     lineHeight: "24px",
     textTransform: "uppercase",
     fontSize: "12px",
-    fontWeight: "500",
+    fontWeight: 500,
     position: "relative",
     display: "block",
     color: "inherit"

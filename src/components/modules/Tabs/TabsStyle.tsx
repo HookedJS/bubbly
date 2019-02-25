@@ -1,4 +1,6 @@
-export const TabsStyle = {
+import { createStyles } from "@material-ui/core/styles";
+
+export const TabsStyle = createStyles({
   cardTitle: {
     float: "left",
     padding: "10px 10px 10px 0px",
@@ -38,7 +40,7 @@ export const TabsStyle = {
     padding: "0px"
   },
   tabLabel: {
-    fontWeight: "500",
+    fontWeight: 500,
     fontSize: "12px"
   },
   tabSelected: {
@@ -58,4 +60,4 @@ export const TabsStyle = {
       margin: "-1px 5px 0 0"
     }
   }
-};
+});

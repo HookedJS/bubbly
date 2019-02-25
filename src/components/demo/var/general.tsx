@@ -1,25 +1,29 @@
 import React from "react";
 
-// @material-ui/icons
 import CardTravel from "@material-ui/icons/CardTravel";
 import Extension from "@material-ui/icons/Extension";
 import Fingerprint from "@material-ui/icons/Fingerprint";
 import FlightLand from "@material-ui/icons/FlightLand";
 import Build from "@material-ui/icons/Build";
 
-// core components
-import CustomDropdown from "~/themes/bubbly/src/components/modules/Dropdown/Dropdown";
+import CustomDropdown from "@bubbly/components/modules/Dropdown/Dropdown";
+import { TimelineStory } from "@bubbly/components/modules/Timeline/Timeline";
+import { SvgIconProps } from "~/themes/bubbly/node_modules/@material-ui/core/SvgIcon/SvgIcon";
+
+import FaceIcon from "@material-ui/icons/Face";
+import RecordVoiceOverIcon from "@material-ui/icons/RecordVoiceOver";
+import EmailIcon from "@material-ui/icons/Email";
 
 // ##############################
 // // // stories for RTLSupport view
 // #############################
 
-const rtlStories = [
+export const rtlStories: TimelineStory[] = [
   {
     // First story
     inverted: true,
     badgeColor: "danger",
-    badgeIcon: CardTravel,
+    BadgeIcon: CardTravel,
     title: "جهة أي",
     titleColor: "danger",
     body: (
@@ -36,7 +40,7 @@ const rtlStories = [
     // Second story
     inverted: true,
     badgeColor: "success",
-    badgeIcon: Extension,
+    BadgeIcon: Extension,
     title: "جُل حكومة",
     titleColor: "success",
     body: (
@@ -52,7 +56,7 @@ const rtlStories = [
     // Third story
     inverted: true,
     badgeColor: "info",
-    badgeIcon: Fingerprint,
+    BadgeIcon: Fingerprint,
     title: "هذا غينيا",
     titleColor: "info",
     body: (
@@ -69,18 +73,18 @@ const rtlStories = [
     footer: (
       <CustomDropdown
         rtlActive
-        buttonIcon={Build}
+        ButtonIcon={Build}
         buttonProps={{
           round: true,
           style: { marginBottom: "0" },
-          color: "info"
+          color: "info",
         }}
         dropdownList={[
-          "ان",
-          "إجلاء لفرنسا",
-          "أواخر الأرض بل",
-          { divider: true },
-          "عل اليها"
+          {content: "ان"},
+          {content: "إجلاء لفرنسا"},
+          {content: "أواخر الأرض بل"},
+          {divider: true },
+          {content: "عل اليها"},
         ]}
       />
     )
@@ -91,12 +95,12 @@ const rtlStories = [
 // // // stories for Widgets view
 // #############################
 
-const widgetStories = [
+export const widgetStories = [
   {
     // First story
     inverted: true,
     badgeColor: "danger",
-    badgeIcon: CardTravel,
+    BadgeIcon: CardTravel,
     title: "Some Title",
     titleColor: "danger",
     body: (
@@ -114,7 +118,7 @@ const widgetStories = [
     // Second story
     inverted: true,
     badgeColor: "success",
-    badgeIcon: Extension,
+    BadgeIcon: Extension,
     title: "Another One",
     titleColor: "success",
     body: (
@@ -130,7 +134,7 @@ const widgetStories = [
     // Third story
     inverted: true,
     badgeColor: "info",
-    badgeIcon: Fingerprint,
+    BadgeIcon: Fingerprint,
     title: "Another Title",
     titleColor: "info",
     body: (
@@ -149,18 +153,18 @@ const widgetStories = [
     ),
     footer: (
       <CustomDropdown
-        buttonIcon={Build}
+        ButtonIcon={Build}
         buttonProps={{
           round: true,
           style: { marginBottom: "0" },
           color: "info"
         }}
         dropdownList={[
-          "Action",
-          "Another action",
-          "Something else here",
-          { divider: true },
-          "Separated link"
+          {content: "Action"},
+          {content: "Another action"},
+          {content: "Something else here"},
+          {divider: true },
+          {content: "Separated link"},
         ]}
       />
     )
@@ -171,12 +175,12 @@ const widgetStories = [
 // // // stories for Timeline view
 // #############################
 
-const stories = [
+export const stories: TimelineStory[] = [
   {
     // First story
     inverted: true,
     badgeColor: "danger",
-    badgeIcon: CardTravel,
+    BadgeIcon: CardTravel,
     title: "Some Title",
     titleColor: "danger",
     body: (
@@ -193,7 +197,7 @@ const stories = [
   {
     // Second story
     badgeColor: "success",
-    badgeIcon: Extension,
+    BadgeIcon: Extension,
     title: "Another One",
     titleColor: "success",
     body: (
@@ -209,7 +213,7 @@ const stories = [
     // Third story
     inverted: true,
     badgeColor: "info",
-    badgeIcon: Fingerprint,
+    BadgeIcon: Fingerprint,
     title: "Another Title",
     titleColor: "info",
     body: (
@@ -228,18 +232,18 @@ const stories = [
     ),
     footer: (
       <CustomDropdown
-        buttonIcon={Build}
+        ButtonIcon={Build}
         buttonProps={{
           round: true,
           style: { marginBottom: "0" },
           color: "info"
         }}
         dropdownList={[
-          "Action",
-          "Another action",
-          "Something else here",
-          { divider: true },
-          "Separated link"
+          {content: "Action"},
+          {content: "Another action"},
+          {content: "Something else here"},
+          {divider: true },
+          {content: "Separated link"},
         ]}
       />
     )
@@ -247,7 +251,7 @@ const stories = [
   {
     // Fourth story
     badgeColor: "warning",
-    badgeIcon: FlightLand,
+    BadgeIcon: FlightLand,
     title: "Another One",
     titleColor: "warning",
     body: (
@@ -265,12 +269,12 @@ const stories = [
 // // // data for populating the calendar in Calendar view
 // #############################
 
-var today = new Date();
-var y = today.getFullYear();
-var m = today.getMonth();
-var d = today.getDate();
+const today = new Date();
+const y = today.getFullYear();
+const m = today.getMonth();
+const d = today.getDate();
 
-const events = [
+export const events = [
   {
     title: "All Day Event",
     allDay: true,
@@ -324,37 +328,38 @@ const events = [
 // // // Tasks for TasksCard - see Widget view
 // #############################
 
-var bugs = [
+export const bugs = [
   'Sign contract for "What are conference organizers afraid of?"',
-  "Lines From Great Russian Literature? Or E-mails From My Boss?",
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  "Create 4 Invisible User Experiences you Never Knew About"
+  "Create 4 Invisible User Experiences you Never Knew About",
+  "Be Awesome",
+  "Go for a walk",
 ];
-var website = [
+export const website = [
   "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"'
+  "One for the count",
+  "Nail it",
 ];
-var server = [
+export const server = [
   "Lines From Great Russian Literature? Or E-mails From My Boss?",
-  "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-  'Sign contract for "What are conference organizers afraid of?"'
+  "Hang out the Shannon",
+  "Fix some stuff",
 ];
 
 // ##############################
 // // // Tasks for TasksCard - see RTLSupport view
 // #############################
 
-var rtlBugs = [
+export const rtlBugs = [
   "فقد لمحاكم الاندونيسية, بلاده بالتوقيع تم يبق. جعل السبب وفرنسا الصينية أي.",
   "بحث. كل مما ٢٠٠٤ شاسعة العسكري جعل السبب وفرنسا الصينية أي.",
   "تسبب أفريقيا ضرب عن, عن إنطلاق جعل السبب وفرنسا الصينية أي.",
   "قدما مليون بين عن, مرجع منتصف الأمريكية جعل السبب وفرنسا الصينية أي."
 ];
-var rtlWebsite = [
+export const rtlWebsite = [
   "قدما مليون بين عن, مرجع منتصف الأمريكية جعل السبب وفرنسا الصينية أي.",
   "قدما مليون بين عن, مرجع منتصف الأمريكية جعل السبب وفرنسا الصينية أي."
 ];
-var rtlServer = [
+export const rtlServer = [
   "قدما مليون بين عن, مرجع منتصف الأمريكية جعل السبب وفرنسا الصينية أي.",
   "قدما مليون بين عن, مرجع منتصف الأمريكية جعل السبب وفرنسا الصينية أي.",
   "قدما مليون بين عن, مرجع منتصف الأمريكية جعل السبب وفرنسا الصينية أي."
@@ -364,7 +369,7 @@ var rtlServer = [
 // // // data for datatables.net in DataTables view
 // #############################
 
-const dataTable = {
+export const dataTable = {
   headerRow: ["Name", "Position", "Office", "Age", "Actions"],
   footerRow: ["Name", "Position", "Office", "Age", "Actions"],
   dataRows: [
@@ -413,23 +418,34 @@ const dataTable = {
   ]
 };
 
-export {
-  // data for React Big Calendar in Calendar view
-  events,
-  // stories for RTLSupport view
-  rtlStories,
-  // stories for Widgets view
-  widgetStories,
-  // stories for Timeline view
-  stories,
-  // these 3 are used to create the tasks lists in TasksCard - Widget view
-  bugs,
-  website,
-  server,
-  // these 3 are used to create the tasks lists in TasksCard - RTLSupport view
-  rtlBugs,
-  rtlWebsite,
-  rtlServer,
-  // data for datatables.net in DataTables view
-  dataTable
-};
+// let fields: FieldListItem[] = [
+//   {
+//     type: "text",
+//     name: "firstname",
+//     label: "First Name",
+//     Icon: FaceIcon,
+//     initialValue: "",
+//     required: true,
+//     validation: (value) => value.length >= 3
+//   },
+//   {
+//     type: "text",
+//     name: "lastname",
+//     Icon: RecordVoiceOverIcon,
+//     label: "Last Name",
+//     initialValue: "",
+//     required: true,
+//     validation: (value) => value.length >= 3
+//   },
+//   {
+//     type: "text",
+//     name: "email",
+//     Icon: EmailIcon,
+//     label: "Email",
+//     initialValue: "",
+//     required: true,
+//     validation: (value) => /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
+//   }
+// ];
+
+

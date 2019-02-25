@@ -2,12 +2,12 @@
 // // // ExtendedForms view styles
 // #############################
 
-import { cardTitle } from "~/themes/bubbly/src/MainStyles";
-import { CustomSelectStyle } from "~/themes/bubbly/src/components/modules/Form/CustomSelectStyle";
-import { CustomCheckboxRadioSwitchStyle } from "~/themes/bubbly/src/components/modules/Form/CustomCheckboxRadioSwitchStyle";
+import { cardTitle } from "@bubbly/MainStyles";
+import { CustomSelectStyle } from "@bubbly/components/modules/Form/CustomSelectStyle";
+import { CheckboxBlockStyle } from "@bubbly/components/modules/Form/CheckboxBlockStyle";
 
 export const ExtendedFormsStyle = {
-  ...CustomCheckboxRadioSwitchStyle,
+  ...CheckboxBlockStyle,
   ...CustomSelectStyle,
   cardTitle,
   cardIconTitle: {

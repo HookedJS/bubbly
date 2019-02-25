@@ -4,11 +4,11 @@ import React from "react";
 import { VectorMap } from "react-jvectormap";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Heading from "~/themes/bubbly/src/components/modules/Heading/Heading";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Heading from "@bubbly/components/modules/Heading/Heading";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
 
 var mapData = {
   AU: 760,

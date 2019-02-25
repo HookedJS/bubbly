@@ -1,9 +1,9 @@
-import { ButtonGroupStyle } from "~/themes/bubbly/src/components/modules/Buttons/ButtonGroupStyle";
-import { CustomCheckboxRadioSwitchStyle } from "~/themes/bubbly/src/components/modules/Form/CustomCheckboxRadioSwitchStyle";
-import { cardTitle } from "~/themes/bubbly/src/MainStyles";
+import { ButtonGroupStyle } from "@bubbly/components/modules/Buttons/ButtonGroupStyle";
+import { CheckboxBlockStyle } from "@bubbly/components/modules/Form/CheckboxBlockStyle";
+import { cardTitle } from "@bubbly/MainStyles";
 
 export const ExtendedTablesStyle = {
-  ...CustomCheckboxRadioSwitchStyle,
+  ...CheckboxBlockStyle,
   ...ButtonGroupStyle,
   right: {
     textAlign: "right"

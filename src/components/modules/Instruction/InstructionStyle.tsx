@@ -2,7 +2,9 @@
 // // // Instruction component styles
 // #############################
 
-export const InstructionStyle = {
+import { createStyles } from "@material-ui/core/styles";
+
+export const InstructionStyle = createStyles({
   instruction: {},
   picture: {},
   image: {
@@ -12,4 +14,4 @@ export const InstructionStyle = {
     display: "block",
     maxWidth: "100%"
   }
-};
+});

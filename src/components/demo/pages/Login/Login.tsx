@@ -12,14 +12,14 @@ import Email from "@material-ui/icons/Email";
 // import LockOutline from "@material-ui/icons/LockOutline";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import CustomInput from "~/themes/bubbly/src/components/modules/CustomInput/CustomInput";
-import Button from "~/themes/bubbly/src/components/modules/Buttons/Button";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
-import CardFooter from "~/themes/bubbly/src/components/modules/Card/CardFooter";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import InputBlock from "@bubbly/components/modules/Form/InputBlock";
+import Button from "@bubbly/components/modules/Buttons/Button";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
+import CardFooter from "@bubbly/components/modules/Card/CardFooter";
 
 import { LoginStyle } from "./LoginStyle";
 
@@ -77,7 +77,7 @@ class Login extends React.Component {
                   </div>
                 </CardHeader>
                 <CardBody>
-                  <CustomInput
+                  <InputBlock
                     labelText="First Name.."
                     id="firstname"
                     formControlProps={{
@@ -91,7 +91,7 @@ class Login extends React.Component {
                       )
                     }}
                   />
-                  <CustomInput
+                  <InputBlock
                     labelText="Email..."
                     id="email"
                     formControlProps={{
@@ -105,7 +105,7 @@ class Login extends React.Component {
                       )
                     }}
                   />
-                  <CustomInput
+                  <InputBlock
                     labelText="Password"
                     id="password"
                     formControlProps={{

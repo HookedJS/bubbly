@@ -3,20 +3,21 @@ import PropTypes from "prop-types";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import { createStyles } from "@material-ui/core/styles";
 
 // core components
-import Quote from "~/themes/bubbly/src/components/modules/Typography/Quote";
-import Muted from "~/themes/bubbly/src/components/modules/Typography/Muted";
-import Primary from "~/themes/bubbly/src/components/modules/Typography/Primary";
-import Info from "~/themes/bubbly/src/components/modules/Typography/Info";
-import Success from "~/themes/bubbly/src/components/modules/Typography/Success";
-import Warning from "~/themes/bubbly/src/components/modules/Typography/Warning";
-import Danger from "~/themes/bubbly/src/components/modules/Typography/Danger";
-import Heading from "~/themes/bubbly/src/components/modules/Heading/Heading";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
+import Quote from "@bubbly/components/modules/Typography/Quote";
+import Muted from "@bubbly/components/modules/Typography/Muted";
+import Primary from "@bubbly/components/modules/Typography/Primary";
+import Info from "@bubbly/components/modules/Typography/Info";
+import Success from "@bubbly/components/modules/Typography/Success";
+import Warning from "@bubbly/components/modules/Typography/Warning";
+import Danger from "@bubbly/components/modules/Typography/Danger";
+import Heading from "@bubbly/components/modules/Heading/Heading";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
 
-const style = {
+const style = createStyles({
   typo: {
     paddingLeft: "25%",
     marginBottom: "40px",
@@ -27,7 +28,7 @@ const style = {
     bottom: "10px",
     color: "#c0c1c2",
     display: "block",
-    fontWeight: "400",
+    fontWeight: 400,
     fontSize: "13px",
     lineHeight: "13px",
     left: "0",
@@ -35,8 +36,9 @@ const style = {
     position: "absolute",
     width: "260px"
   }
-};
-function Typography({ ...props }) {
+});
+
+export const Typography = withStyles(style)(({ ...props }) => {
   return (
     <div>
       <Heading
@@ -141,10 +143,10 @@ function Typography({ ...props }) {
       </Card>
     </div>
   );
-}
+});
 
 Typography.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(style)(Typography);
+export default Typography;

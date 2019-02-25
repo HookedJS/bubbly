@@ -2,6 +2,7 @@
 // // // Wizard component styles
 // #############################
 
+import { createStyles } from "@material-ui/core/styles";
 import {
   primaryColor,
   dangerColor,
@@ -9,9 +10,9 @@ import {
   roseColor,
   infoColor,
   warningColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const WizardStyle = {
+export const WizardStyle = createStyles({
   wizardContainer: {},
   card: {
     display: "inline-block",
@@ -72,7 +73,7 @@ export const WizardStyle = {
     lineHeight: "18px",
     textTransform: "uppercase",
     fontSize: "12px",
-    fontWeight: "500",
+    fontWeight: 500,
     minWidth: "100px",
     textAlign: "center",
     color: "#555555 !important"
@@ -100,7 +101,7 @@ export const WizardStyle = {
     borderRadius: "4px",
     color: "#FFFFFF",
     cursor: "pointer",
-    fontWeight: "500"
+    fontWeight: 500,
   },
   primary: {
     backgroundColor: primaryColor,
@@ -136,9 +137,11 @@ export const WizardStyle = {
     padding: "0 15px"
   },
   left: {
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     float: "left!important"
   },
   right: {
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     float: "right!important"
   },
   clearfix: {
@@ -148,4 +151,4 @@ export const WizardStyle = {
     },
     clear: "both"
   }
-};
+});

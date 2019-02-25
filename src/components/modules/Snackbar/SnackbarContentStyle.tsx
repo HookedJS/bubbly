@@ -2,6 +2,7 @@
 // // // SnackbarContent styles
 // #############################
 
+import { createStyles } from "@material-ui/core/styles";
 import {
   defaultFont,
   primaryBoxShadow,
@@ -10,9 +11,9 @@ import {
   warningBoxShadow,
   dangerBoxShadow,
   roseBoxShadow
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const SnackbarContentStyle = {
+export const SnackbarContentStyle = createStyles({
   root: {
     ...defaultFont,
     flexWrap: "unset",
@@ -114,4 +115,4 @@ export const SnackbarContentStyle = {
     paddingLeft: "50px",
     display: "block"
   }
-};
+});

@@ -1,20 +1,26 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
+import ClassNames from "classnames";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
-// core components
 import { CardTextStyle } from "./CardTextStyle";
 
-function CardText({ ...props }) {
-  const { classes, className, children, color, ...rest } = props;
-  const cardTextClasses = classNames({
+const CardText = withStyles(CardTextStyle)((
+  {
+    classes,
+    className = "",
+    children,
+    color = "primary",
+    ...rest }
+  : WithStyles<typeof CardTextStyle> & {
+    children: React.ReactNode,
+    className?: string,
+    color?: "warning" | "success" | "danger" | "info" | "primary" | "rose",
+  }
+) => {
+  const cardTextClasses = ClassNames({
     [classes.cardText]: true,
-    [classes[color + "CardHeader"]]: color,
+    // @ts-ignore: Ignore missing signature
+    [classes[color + "CardHeader"]]: true,
     [className]: className !== undefined
   });
   return (
@@ -22,19 +28,19 @@ function CardText({ ...props }) {
       {children}
     </div>
   );
-}
+});
 
-CardText.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  color: PropTypes.oneOf([
-    "warning",
-    "success",
-    "danger",
-    "info",
-    "primary",
-    "rose"
-  ])
-};
+// CardText.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   className: PropTypes.string,
+//   color: PropTypes.oneOf([
+//     "warning",
+//     "success",
+//     "danger",
+//     "info",
+//     "primary",
+//     "rose"
+//   ])
+// };
 
-export default withStyles(CardTextStyle)(CardText);
+export default CardText;

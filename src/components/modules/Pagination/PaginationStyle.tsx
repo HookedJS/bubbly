@@ -2,6 +2,7 @@
 // // // Pagination component styles
 // #############################
 
+import { createStyles } from "@material-ui/core/styles";
 import {
   grayColor,
   primaryColor,
@@ -9,9 +10,9 @@ import {
   successColor,
   warningColor,
   dangerColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const PaginationStyle = {
+export const PaginationStyle = createStyles({
   pagination: {
     display: "inline-block",
     paddingLeft: "0",
@@ -34,7 +35,7 @@ export const PaginationStyle = {
     height: "30px",
     minHeight: "auto",
     lineHeight: "30px",
-    fontWeight: "400",
+    fontWeight: 400,
     fontSize: "12px",
     textTransform: "uppercase",
     background: "transparent",
@@ -46,7 +47,7 @@ export const PaginationStyle = {
       color: grayColor
     },
     "&:hover,&:focus": {
-      zIndex: "3",
+      zIndex: 3,
       backgroundColor: "#eee",
       borderColor: "#ddd"
     },
@@ -63,7 +64,7 @@ export const PaginationStyle = {
         "0 4px 5px 0 rgba(156, 39, 176, 0.14), 0 1px 10px 0 rgba(156, 39, 176, 0.12), 0 2px 4px -1px rgba(156, 39, 176, 0.2)"
     },
     "&:hover,&:focus": {
-      zIndex: "2",
+      zIndex: 2,
       cursor: "default"
     }
   },
@@ -76,7 +77,7 @@ export const PaginationStyle = {
         "0 4px 5px 0 rgba(0, 188, 212, 0.14), 0 1px 10px 0 rgba(0, 188, 212, 0.12), 0 2px 4px -1px rgba(0, 188, 212, 0.2)"
     },
     "&:hover,&:focus": {
-      zIndex: "2",
+      zIndex: 2,
       cursor: "default"
     }
   },
@@ -89,7 +90,7 @@ export const PaginationStyle = {
         "0 4px 5px 0 rgba(76, 175, 80, 0.14), 0 1px 10px 0 rgba(76, 175, 80, 0.12), 0 2px 4px -1px rgba(76, 175, 80, 0.2)"
     },
     "&:hover,&:focus": {
-      zIndex: "2",
+      zIndex: 2,
       cursor: "default"
     }
   },
@@ -102,7 +103,7 @@ export const PaginationStyle = {
         "0 4px 5px 0 rgba(255, 152, 0, 0.14), 0 1px 10px 0 rgba(255, 152, 0, 0.12), 0 2px 4px -1px rgba(255, 152, 0, 0.2)"
     },
     "&:hover,&:focus": {
-      zIndex: "2",
+      zIndex: 2,
       cursor: "default"
     }
   },
@@ -115,7 +116,7 @@ export const PaginationStyle = {
         "0 4px 5px 0 rgba(244, 67, 54, 0.14), 0 1px 10px 0 rgba(244, 67, 54, 0.12), 0 2px 4px -1px rgba(244, 67, 54, 0.2)"
     },
     "&:hover,&:focus": {
-      zIndex: "2",
+      zIndex: 2,
       cursor: "default"
     }
   },
@@ -127,4 +128,4 @@ export const PaginationStyle = {
       borderColor: "#ddd"
     }
   }
-};
+});

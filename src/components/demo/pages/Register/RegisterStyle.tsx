@@ -2,12 +2,12 @@
 // // // RegisterPage view styles
 // #############################
 
-import { container, cardTitle } from "~/themes/bubbly/src/MainStyles";
+import { container, cardTitle } from "@bubbly/MainStyles";
 
-import { CustomCheckboxRadioSwitchStyle } from "~/themes/bubbly/src/components/modules/Form/CustomCheckboxRadioSwitchStyle";
+import { CheckboxBlockStyle } from "@bubbly/components/modules/Form/CheckboxBlockStyle";
 
 export const RegisterStyle = {
-  ...CustomCheckboxRadioSwitchStyle,
+  ...CheckboxBlockStyle,
   cardTitle: {
     ...cardTitle,
     textAlign: "center"
@@ -15,7 +15,7 @@ export const RegisterStyle = {
   container: {
     ...container,
     position: "relative",
-    zIndex: "3"
+    zIndex: 3
     // paddingTop: "23vh"
   },
   cardSignup: {

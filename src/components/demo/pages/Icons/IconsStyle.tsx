@@ -2,7 +2,7 @@
 // // // Icons styles
 // #############################
 
-import { boxShadow } from "~/themes/bubbly/src/MainStyles";
+import { boxShadow } from "@bubbly/MainStyles";
 
 export const IconsStyle = {
   iframe: {

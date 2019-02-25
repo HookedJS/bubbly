@@ -7,17 +7,22 @@ import {
   container,
   containerFluid,
   primaryColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const FooterStyle = {
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
+
+export const FooterStyle = (theme: Theme) => createStyles({
   block: {},
   left: {
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     float: "left!important",
     display: "block"
   },
   right: {
     margin: "0",
     fontSize: "14px",
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     float: "right!important",
     padding: "15px"
   },
@@ -28,11 +33,13 @@ export const FooterStyle = {
     ...defaultFont,
     zIndex: 4
   },
+  // @ts-ignore: Typescript gets confused about a CSSProperty
   container: {
     zIndex: 3,
     ...container,
     position: "relative"
   },
+  // @ts-ignore: Typescript gets confused about a CSSProperty
   containerFluid: {
     zIndex: 3,
     ...containerFluid,
@@ -58,4 +65,4 @@ export const FooterStyle = {
       color: "#FFFFFF"
     }
   }
-};
+});

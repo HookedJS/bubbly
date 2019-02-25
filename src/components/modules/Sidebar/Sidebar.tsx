@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 import cx from "classnames";
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -15,38 +15,50 @@ import Hidden from "@material-ui/core/Hidden";
 import Collapse from "@material-ui/core/Collapse";
 import Icon from "@material-ui/core/Icon";
 
-// core components
-import HeaderLinks from "~/themes/bubbly/src/components/sections/Header/HeaderLinks";
+import {HeaderLink} from "~/themes/bubbly/src/components/sections/HeaderSidebar/HeaderSidebar";
+import HeaderLinks from "@bubbly/components/sections/HeaderSidebar/HeaderLinks";
 
 import { SidebarStyle } from "./SidebarStyle";
 
-import avatar from "~/themes/bubbly/src/components/demo/assets/img/faces/avatar.jpg";
-
-let ps;
+import avatar from "@bubbly/components/demo/assets/img/faces/avatar.jpg";
 
 // We've created this component so we can have a ref to the wrapper of the links that appears in our sidebar.
 // This was necessary so that we could initialize PerfectScrollbar on the links.
 // There might be something with the Hidden component from material-ui, and we didn't have access to
 // the links, and couldn't initialize the plugin.
-const SidebarWrapper = ({ className, userJsx, headerLinksJsx, linksJsx }) => {
-  const sidebarWrapperRef = React.createRef();
+const SidebarWrapper = (
+  {
+    className,
+    userJsx,
+    headerLinksJsx,
+    linksJsx
+  }:
+  {
+    className: any,
+    userJsx: React.ReactNode,
+    headerLinksJsx?: React.ReactNode,
+    linksJsx: React.ReactNode,
+  }
+) => {
+  let sidebarWrapperRef: HTMLElement;
 
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
-      ps = new PerfectScrollbar(sidebarWrapperRef, {
+      const ps = new PerfectScrollbar(sidebarWrapperRef, {
         suppressScrollX: true,
         suppressScrollY: false
       });
+      return () => {
+        if (navigator.platform.indexOf("Win") > -1) {
+          ps.destroy();
+        }
+      };
     }
-    return () => {
-      if (navigator.platform.indexOf("Win") > -1) {
-        ps.destroy();
-      }
-    };
+    return () => null;
   });
 
   return (
-    <div className={className} ref={sidebarWrapperRef}>
+    <div className={className} ref={ref => {sidebarWrapperRef = ref as HTMLElement}}>
       {userJsx}
       {headerLinksJsx}
       {linksJsx}
@@ -54,57 +66,51 @@ const SidebarWrapper = ({ className, userJsx, headerLinksJsx, linksJsx }) => {
   );
 };
 
-// TODO: Add typescript to honor proptypes
-/*
-Sidebar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  bgColor: PropTypes.oneOf(["white", "black", "blue"]),
-  rtlActive: PropTypes.bool,
-  color: PropTypes.oneOf([
-    "white",
-    "red",
-    "orange",
-    "green",
-    "blue",
-    "purple",
-    "rose"
-  ]),
-  logo: PropTypes.string,
-  logoText: PropTypes.string,
-  image: PropTypes.string,
-  links: PropTypes.arrayOf(PropTypes.object)
-};
- */
+const Sidebar = withStyles(SidebarStyle)((
+    {
+      classes,
+      bgColor = "blue",
+      rtlActive = false,
+      color = "black",
+      logo,
+      logoText,
+      image,
+      links,
+      handleDrawerToggle,
+      open = true,
+      miniActive = false,
+  }: WithStyles<typeof SidebarStyle> & {
+      bgColor?: string,
+      rtlActive?: boolean,
+      color?: string,
+      logo: React.ReactNode | string,
+      logoText?: string,
+      image?: string,
+      links: HeaderLink[],
+      handleDrawerToggle: () => any,
+      open?: boolean,
+      miniActive?: boolean,
+    }
+) => {
 
-const Sidebar = ({
-  classes,
-  bgColor,
-  rtlActive,
-  color,
-  logo,
-  logoText,
-  image,
-  links,
-  handleDrawerToggle,
-  open,
-  miniActive
-}) => {
-  if (!bgColor) bgColor = "blue";
-  const mainPanel = React.createRef();
+  interface menuStates {openAvatar: boolean, miniActive: boolean, [key: number]: boolean}
+  const [menuStates, setMenuStates]
+    : [menuStates, (result: menuStates) => void]
+    = React.useState({
+    openAvatar: false,
+    miniActive: false,
+  });
 
   // verifies if routeName is the one active (in browser input)
-  const activeRoute = routeName => {
-    return window.location.pathname.indexOf(routeName) > -1 ? true : false;
+  const activeRoute = (routeName: string) => {
+    return window.location.pathname.indexOf(routeName) > -1;
   };
 
   // TODO: Menu states should be stored in Mobx
-  const [menuStates, setMenuStates] = React.useState({
-    openAvatar: false,
-    miniActive: false
-  });
 
-  const openCollapse = collapse => {
+  const openCollapse = (collapse: "openAvatar" | number) => {
     let st = menuStates;
+    // @ts-ignore: Ignore wildcard signature
     st[collapse] = !st[collapse];
     setMenuStates(st);
   };
@@ -442,7 +448,7 @@ const Sidebar = ({
   const brandJsx = (
     <div className={logoClasses}>
       <Link to="/" className={logoMini}>
-        <img src={logo} alt="logo" className={classes.img} />
+        <img src={logo as string} alt="logo" className={classes.img} />
       </Link>
       <Link to="/" className={logoNormal}>
         {logoText}
@@ -464,8 +470,10 @@ const Sidebar = ({
       [classes.sidebarWrapperWithPerfectScrollbar]:
         navigator.platform.indexOf("Win") > -1
     });
+
+
   return (
-    <div ref={mainPanel}>
+    <div>
       <Hidden mdUp implementation="css">
         <Drawer
           variant="temporary"
@@ -483,7 +491,7 @@ const Sidebar = ({
           <SidebarWrapper
             className={sidebarWrapper}
             userJsx={userJsx}
-            headerLinks={<HeaderLinks rtlActive={rtlActive} />}
+            headerLinksJsx={<HeaderLinks rtlActive={rtlActive} />}
             linksJsx={linksJsx}
           />
           {image !== undefined ? (
@@ -523,6 +531,25 @@ const Sidebar = ({
       </Hidden>
     </div>
   );
-};
+});
 
-export default withStyles(SidebarStyle)(Sidebar);
+// Sidebar.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   bgColor: PropTypes.oneOf(["white", "black", "blue"]),
+//   rtlActive: PropTypes.bool,
+//   color: PropTypes.oneOf([
+//     "white",
+//     "red",
+//     "orange",
+//     "green",
+//     "blue",
+//     "purple",
+//     "rose"
+//   ]),
+//   logo: PropTypes.string,
+//   logoText: PropTypes.string,
+//   image: PropTypes.string,
+//   links: PropTypes.arrayOf(PropTypes.object)
+// };
+
+export default Sidebar;

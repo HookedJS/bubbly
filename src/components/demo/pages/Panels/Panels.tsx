@@ -12,15 +12,15 @@ import Gavel from "@material-ui/icons/Gavel";
 import HelpOutline from "@material-ui/icons/HelpOutline";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import NavPills from "~/themes/bubbly/src/components/modules/NavPills/NavPills";
-import Accordion from "~/themes/bubbly/src/components/modules/Accordion/Accordion";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import NavPills from "@bubbly/components/modules/NavPills/NavPills";
+import Accordion from "@bubbly/components/modules/Accordion/Accordion";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
 
-import { cardTitle } from "~/themes/bubbly/src/MainStyles";
+import { cardTitle } from "@bubbly/MainStyles";
 
 const styles = {
   cardTitle,
@@ -237,7 +237,7 @@ class Panels extends React.Component {
                   tabs={[
                     {
                       tabButton: "Dashboard",
-                      tabIcon: Dashboard,
+                      TabIcon: Dashboard,
                       tabContent: (
                         <span>
                           <p>
@@ -266,7 +266,7 @@ class Panels extends React.Component {
                     },
                     {
                       tabButton: "Schedule",
-                      tabIcon: Schedule,
+                      TabIcon: Schedule,
                       tabContent: (
                         <span>
                           <p>
@@ -301,11 +301,11 @@ class Panels extends React.Component {
             <br />
             <NavPills
               color="warning"
-              alignCenter
+              alignCenter={true}
               tabs={[
                 {
                   tabButton: "Description",
-                  tabIcon: Info,
+                  TabIcon: Info,
                   tabContent: (
                     <Card>
                       <CardHeader>
@@ -330,7 +330,7 @@ class Panels extends React.Component {
                 },
                 {
                   tabButton: "Location",
-                  tabIcon: LocationOn,
+                  TabIcon: LocationOn,
                   tabContent: (
                     <Card>
                       <CardHeader>
@@ -355,7 +355,7 @@ class Panels extends React.Component {
                 },
                 {
                   tabButton: "Legal Info",
-                  tabIcon: Gavel,
+                  TabIcon: Gavel,
                   tabContent: (
                     <Card>
                       <CardHeader>
@@ -380,7 +380,7 @@ class Panels extends React.Component {
                 },
                 {
                   tabButton: "Help Center",
-                  tabIcon: HelpOutline,
+                  TabIcon: HelpOutline,
                   tabContent: (
                     <Card>
                       <CardHeader>

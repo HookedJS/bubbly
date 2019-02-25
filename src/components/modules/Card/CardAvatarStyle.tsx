@@ -1,4 +1,6 @@
-export const CardAvatarStyle = {
+import { createStyles } from "@material-ui/core/styles";
+
+export const CardAvatarStyle = createStyles({
   cardAvatar: {
     "&$cardAvatarProfile img,&$cardAvatarTestimonial img": {
       width: "100%",
@@ -36,4 +38,4 @@ export const CardAvatarStyle = {
     marginBottom: "-50px",
     marginTop: "10px"
   }
-};
+});

@@ -5,14 +5,14 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 // core components
-import Button from "~/themes/bubbly/src/components/modules/Buttons/Button";
-import CustomInput from "~/themes/bubbly/src/components/modules/CustomInput/CustomInput";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardAvatar from "~/themes/bubbly/src/components/modules/Card/CardAvatar";
-import CardFooter from "~/themes/bubbly/src/components/modules/Card/CardFooter";
+import Button from "@bubbly/components/modules/Buttons/Button";
+import InputBlock from "@bubbly/components/modules/Form/InputBlock";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardAvatar from "@bubbly/components/modules/Card/CardAvatar";
+import CardFooter from "@bubbly/components/modules/Card/CardFooter";
 
-import avatar from "~/themes/bubbly/src/components/demo/assets/img/faces/avatar.jpg";
+import avatar from "@bubbly/components/demo/assets/img/faces/avatar.jpg";
 
 import { LockStyle } from "./LockStyle";
 
@@ -55,7 +55,7 @@ class Lock extends React.Component {
             </CardAvatar>
             <CardBody profile>
               <h4 className={classes.cardTitle}>Tania Andrew</h4>
-              <CustomInput
+              <InputBlock
                 labelText="Enter Password"
                 id="company-disabled"
                 formControlProps={{

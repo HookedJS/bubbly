@@ -1,21 +1,15 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-// @material-ui/icons
+import ClassNames from "classnames";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
-// core components
 import { CardHeaderStyle } from "./CardHeaderStyle";
 
-function CardHeader({ ...props }) {
-  const {
+export const CardHeader = withStyles(CardHeaderStyle)((
+  {
     classes,
     className,
     children,
-    color,
+    color = "primary",
     plain,
     image,
     contact,
@@ -24,8 +18,21 @@ function CardHeader({ ...props }) {
     icon,
     text,
     ...rest
-  } = props;
-  const cardHeaderClasses = classNames({
+  }
+  : WithStyles<typeof CardHeaderStyle> & {
+    children: React.ReactNode,
+    className?: string,
+    color?: "warning" | "success" | "danger" | "info" | "primary" | "rose" | "gray",
+    plain?: boolean,
+    image?: boolean,
+    contact?: boolean,
+    signup?: boolean,
+    stats?: boolean,
+    icon?: boolean,
+    text?: boolean,
+  }
+) => {
+  const cardHeaderClasses = ClassNames({
     [classes.cardHeader]: true,
     [classes[color + "CardHeader"]]: color,
     [classes.cardHeaderPlain]: plain,
@@ -35,33 +42,33 @@ function CardHeader({ ...props }) {
     [classes.cardHeaderStats]: stats,
     [classes.cardHeaderIcon]: icon,
     [classes.cardHeaderText]: text,
-    [className]: className !== undefined
+    [className!]: className !== undefined
   });
   return (
     <div className={cardHeaderClasses} {...rest}>
       {children}
     </div>
   );
-}
+});
 
-CardHeader.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  color: PropTypes.oneOf([
-    "warning",
-    "success",
-    "danger",
-    "info",
-    "primary",
-    "rose"
-  ]),
-  plain: PropTypes.bool,
-  image: PropTypes.bool,
-  contact: PropTypes.bool,
-  signup: PropTypes.bool,
-  stats: PropTypes.bool,
-  icon: PropTypes.bool,
-  text: PropTypes.bool
-};
+// CardHeader.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   className: PropTypes.string,
+//   color: PropTypes.oneOf([
+//     "warning",
+//     "success",
+//     "danger",
+//     "info",
+//     "primary",
+//     "rose"
+//   ]),
+//   plain: PropTypes.bool,
+//   image: PropTypes.bool,
+//   contact: PropTypes.bool,
+//   signup: PropTypes.bool,
+//   stats: PropTypes.bool,
+//   icon: PropTypes.bool,
+//   text: PropTypes.bool
+// };
 
-export default withStyles(CardHeaderStyle)(CardHeader);
+export default CardHeader;

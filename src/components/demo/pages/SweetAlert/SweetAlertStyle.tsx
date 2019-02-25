@@ -2,7 +2,7 @@
 // // // SweetAlert view styles
 // #############################
 
-import { ButtonStyle } from "~/themes/bubbly/src/components/modules/Buttons/ButtonStyle";
+import { ButtonStyle } from "@bubbly/components/modules/Buttons/ButtonStyle";
 
 export const SweetAlertStyle = {
   cardTitle: {

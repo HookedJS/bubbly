@@ -2,6 +2,7 @@
 // // // Table styles
 // #############################
 
+
 import {
   warningColor,
   primaryColor,
@@ -11,9 +12,11 @@ import {
   roseColor,
   grayColor,
   defaultFont
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { createStyles } from "@material-ui/core/styles";
 
-export const TableStyle = theme => ({
+export const TableStyle = (theme: Theme) => createStyles({
   warning: {
     color: warningColor
   },
@@ -49,6 +52,7 @@ export const TableStyle = theme => ({
   },
   tableShoppingHead: {
     fontSize: "0.9em !important",
+    // @ts-ignore: Typescript gets confused about a CSSProperty
     textTransform: "uppercase !important"
   },
   tableHeadFontSize: {
@@ -73,14 +77,14 @@ export const TableStyle = theme => ({
     }
   },
   tableCellTotal: {
-    fontWeight: "500",
+    fontWeight: 500,
     fontSize: "1.25em",
     paddingTop: "14px",
     textAlign: "right"
   },
   tableCellAmount: {
     fontSize: "26px",
-    fontWeight: "300",
+    fontWeight: 300,
     marginTop: "5px",
     textAlign: "right"
   },

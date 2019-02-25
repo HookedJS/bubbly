@@ -15,14 +15,14 @@ import AddLocation from "@material-ui/icons/AddLocation";
 import Place from "@material-ui/icons/Place";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
-import CardIcon from "~/themes/bubbly/src/components/modules/Card/CardIcon";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
+import CardIcon from "@bubbly/components/modules/Card/CardIcon";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
 
-import { cardTitle } from "~/themes/bubbly/src/MainStyles";
+import { cardTitle } from "@bubbly/MainStyles";
 
 const styles = {
   cardIconTitle: {

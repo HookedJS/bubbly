@@ -2,6 +2,7 @@
 // // // Button styles
 // #############################
 
+import { createStyles } from "@material-ui/core/styles";
 import {
   grayColor,
   roseColor,
@@ -10,9 +11,9 @@ import {
   successColor,
   warningColor,
   dangerColor
-} from "~/themes/bubbly/src/MainStyles";
+} from "@bubbly/MainStyles";
 
-export const ButtonStyle = {
+export const ButtonStyle = createStyles({
   button: {
     minHeight: "auto",
     minWidth: "auto",
@@ -26,7 +27,7 @@ export const ButtonStyle = {
     padding: "12px 30px",
     margin: ".3125rem 1px",
     fontSize: "12px",
-    fontWeight: "400",
+    fontWeight: 400,
     textTransform: "uppercase",
     letterSpacing: "0",
     willChange: "box-shadow, transform",
@@ -378,7 +379,7 @@ export const ButtonStyle = {
     }
   },
   disabled: {
-    opacity: "0.65",
+    opacity: 0.65,
     pointerEvents: "none"
   },
   lg: {
@@ -444,4 +445,4 @@ export const ButtonStyle = {
       }
     }
   }
-};
+});

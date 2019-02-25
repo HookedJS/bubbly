@@ -18,13 +18,13 @@ import Email from "@material-ui/icons/Email";
 import Check from "@material-ui/icons/Check";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import Button from "~/themes/bubbly/src/components/modules/Buttons/Button";
-import CustomInput from "~/themes/bubbly/src/components/modules/CustomInput/CustomInput";
-import InfoArea from "~/themes/bubbly/src/components/modules/InfoArea/InfoArea";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Button from "@bubbly/components/modules/Buttons/Button";
+import InputBlock from "@bubbly/components/modules/Form/InputBlock";
+import InfoArea from "@bubbly/components/modules/InfoArea/InfoArea";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
 
 import { RegisterStyle } from "./RegisterStyle";
 
@@ -65,19 +65,19 @@ class Register extends React.Component {
                     <InfoArea
                       title="Marketing"
                       description="We've created the marketing campaign of the website. It was a very interesting collaboration."
-                      icon={Timeline}
+                      Icon={Timeline}
                       iconColor="rose"
                     />
                     <InfoArea
                       title="Fully Coded in HTML5"
                       description="We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub."
-                      icon={Code}
+                      Icon={Code}
                       iconColor="primary"
                     />
                     <InfoArea
                       title="Built Audience"
                       description="There is also a Fully Customizable CMS Admin Dashboard for this product."
-                      icon={Group}
+                      Icon={Group}
                       iconColor="info"
                     />
                   </GridItem>
@@ -98,7 +98,7 @@ class Register extends React.Component {
                       <h4 className={classes.socialTitle}>or be classical</h4>
                     </div>
                     <form className={classes.form}>
-                      <CustomInput
+                      <InputBlock
                         formControlProps={{
                           fullWidth: true,
                           className: classes.customFormControlClasses
@@ -115,7 +115,7 @@ class Register extends React.Component {
                           placeholder: "First Name..."
                         }}
                       />
-                      <CustomInput
+                      <InputBlock
                         formControlProps={{
                           fullWidth: true,
                           className: classes.customFormControlClasses
@@ -132,7 +132,7 @@ class Register extends React.Component {
                           placeholder: "Email..."
                         }}
                       />
-                      <CustomInput
+                      <InputBlock
                         formControlProps={{
                           fullWidth: true,
                           className: classes.customFormControlClasses

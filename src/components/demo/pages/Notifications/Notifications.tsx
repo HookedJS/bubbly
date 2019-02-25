@@ -14,20 +14,20 @@ import AddAlert from "@material-ui/icons/AddAlert";
 import Close from "@material-ui/icons/Close";
 
 // core components
-import Heading from "~/themes/bubbly/src/components/modules/Heading/Heading";
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import SnackbarContent from "~/themes/bubbly/src/components/modules/Snackbar/SnackbarContent";
-import Button from "~/themes/bubbly/src/components/modules/Buttons/Button";
-import Snackbar from "~/themes/bubbly/src/components/modules/Snackbar/Snackbar";
-import Instruction from "~/themes/bubbly/src/components/modules/Instruction/Instruction";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
+import Heading from "@bubbly/components/modules/Heading/Heading";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import SnackbarContent from "@bubbly/components/modules/Snackbar/SnackbarContent";
+import Button from "@bubbly/components/modules/Buttons/Button";
+import Snackbar from "@bubbly/components/modules/Snackbar/Snackbar";
+import Instruction from "@bubbly/components/modules/Instruction/Instruction";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
 
 import { NotificationsStyle } from "./NotificationsStyle";
 
-import noticeModal1 from "~/themes/bubbly/src/components/demo/assets/img/card-1.jpeg";
-import noticeModal2 from "~/themes/bubbly/src/components/demo/assets/img/card-2.jpeg";
+import noticeModal1 from "@bubbly/components/demo/assets/img/card-1.jpeg";
+import noticeModal2 from "@bubbly/components/demo/assets/img/card-2.jpeg";
 import { Link } from "react-router-dom";
 
 function Transition(props) {
@@ -128,7 +128,7 @@ class Notifications extends React.Component {
                     "This is a notification with close button and icon and have many lines. You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don't have to worry about the style."
                   }
                   close
-                  icon={AddAlert}
+                  Icon={AddAlert}
                   color="info"
                 />
                 <br />
@@ -137,7 +137,7 @@ class Notifications extends React.Component {
                     'This is a notification with close button and icon and is made with color="rose". You can see that the icon and the close button are always vertically aligned. This is a beautiful notification. So you don\'t have to worry about the style.'
                   }
                   close
-                  icon={AddAlert}
+                  Icon={AddAlert}
                   color="rose"
                 />
               </CardBody>
@@ -227,7 +227,7 @@ class Notifications extends React.Component {
                       <Snackbar
                         place="tl"
                         color="info"
-                        icon={AddAlert}
+                        Icon={AddAlert}
                         message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
                         open={this.state.tl}
                         closeNotification={() => this.setState({ tl: false })}
@@ -245,7 +245,7 @@ class Notifications extends React.Component {
                       <Snackbar
                         place="tc"
                         color="info"
-                        icon={AddAlert}
+                        Icon={AddAlert}
                         message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
                         open={this.state.tc}
                         closeNotification={() => this.setState({ tc: false })}
@@ -263,7 +263,7 @@ class Notifications extends React.Component {
                       <Snackbar
                         place="tr"
                         color="info"
-                        icon={AddAlert}
+                        Icon={AddAlert}
                         message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
                         open={this.state.tr}
                         closeNotification={() => this.setState({ tr: false })}
@@ -283,7 +283,7 @@ class Notifications extends React.Component {
                       <Snackbar
                         place="bl"
                         color="info"
-                        icon={AddAlert}
+                        Icon={AddAlert}
                         message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
                         open={this.state.bl}
                         closeNotification={() => this.setState({ bl: false })}
@@ -301,7 +301,7 @@ class Notifications extends React.Component {
                       <Snackbar
                         place="bc"
                         color="info"
-                        icon={AddAlert}
+                        Icon={AddAlert}
                         message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
                         open={this.state.bc}
                         closeNotification={() => this.setState({ bc: false })}
@@ -319,7 +319,7 @@ class Notifications extends React.Component {
                       <Snackbar
                         place="br"
                         color="info"
-                        icon={AddAlert}
+                        Icon={AddAlert}
                         message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
                         open={this.state.br}
                         closeNotification={() => this.setState({ br: false })}

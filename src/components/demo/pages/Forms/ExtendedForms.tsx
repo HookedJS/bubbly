@@ -7,7 +7,7 @@ import TagsInput from "react-tagsinput";
 import nouislider from "nouislider";
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 import FormControl from "@material-ui/core/FormControl";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -21,58 +21,84 @@ import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import AvTimer from "@material-ui/icons/AvTimer";
 
 // core components
-import GridContainer from "~/themes/bubbly/src/components/layouts/Grid/GridContainer";
-import GridItem from "~/themes/bubbly/src/components/layouts/Grid/GridItem";
-import CustomDropdown from "~/themes/bubbly/src/components/modules/Dropdown/Dropdown";
-import LinearProgress from "~/themes/bubbly/src/components/modules/LinearProgress/LinearProgress";
-import ImageUpload from "~/themes/bubbly/src/components/modules/CustomUpload/ImageUpload";
-import Card from "~/themes/bubbly/src/components/modules/Card/Card";
-import CardHeader from "~/themes/bubbly/src/components/modules/Card/CardHeader";
-import CardIcon from "~/themes/bubbly/src/components/modules/Card/CardIcon";
-import CardBody from "~/themes/bubbly/src/components/modules/Card/CardBody";
+import GridContainer from "@bubbly/components/layouts/Grid/GridContainer";
+import GridItem from "@bubbly/components/layouts/Grid/GridItem";
+import Dropdown from "@bubbly/components/modules/Dropdown/Dropdown";
+import LinearProgress from "@bubbly/components/modules/LinearProgress/LinearProgress";
+import ImageUpload from "@bubbly/components/modules/Upload/ImageUpload";
+import Card from "@bubbly/components/modules/Card/Card";
+import CardHeader from "@bubbly/components/modules/Card/CardHeader";
+import CardIcon from "@bubbly/components/modules/Card/CardIcon";
+import CardBody from "@bubbly/components/modules/Card/CardBody";
 
 import { ExtendedFormsStyle } from "./ExtendedFormsStyle";
+import { RegularFormsStyle } from "@bubbly/components/demo/pages/Forms/RegularFormsStyle";
 
-class ExtendedForms extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checkedA: true,
-      checkedB: false,
-      simpleSelect: "",
-      multipleSelect: [],
-      tags: ["pizza", "pasta", "parmesan"]
-    };
-    this.handleTags = this.handleTags.bind(this);
+export const ExtendedForms = withStyles(ExtendedFormsStyle)((
+  {
+    classes
   }
-  componentDidMount() {
-    nouislider.create(this.refs.slider1, {
-      start: [40],
+    : WithStyles<typeof RegularFormsStyle> & {}
+) => {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     checkedA: true,
+  //     checkedB: false,
+  //     simpleSelect: "",
+  //     multipleSelect: [],
+  //     tags: ["pizza", "pasta", "parmesan"]
+  //   };
+  //   this.handleTags = this.handleTags.bind(this);
+  // }
+  // componentDidMount() {
+  //   nouislider.create(this.refs.slider1, {
+  //     start: [40],
+  //     connect: [true, false],
+  //     step: 1,
+  //     range: { min: 0, max: 100 }
+  //   });
+  //   nouislider.create(this.refs.slider2, {
+  //     start: [20, 60],
+  //     connect: [false, true, false],
+  //     step: 1,
+  //     range: { min: 0, max: 100 }
+  //   });
+  // }
+  // handleSimple = event => {
+  //   this.setState({ [event.target.name]: event.target.value });
+  // };
+  // handleMultiple = event => {
+  //   this.setState({ multipleSelect: event.target.value });
+  // };
+  // handleChange = name => event => {
+  //   this.setState({ [name]: event.target.checked });
+  // };
+  // handleTags(regularTags) {
+  //   this.setState({ tags: regularTags });
+  // }
+
+
+    // For an example of how to use validation, look at WizardSteps->Step1
+
+  let slider1Ref: HTMLElement;
+  let slider2Ref: HTMLElement;
+
+  React.useEffect(() => {
+    nouislider.create(slider1Ref, {
+          start: [40],
       connect: [true, false],
       step: 1,
       range: { min: 0, max: 100 }
     });
-    nouislider.create(this.refs.slider2, {
+    nouislider.create(slider2Ref, {
       start: [20, 60],
       connect: [false, true, false],
       step: 1,
       range: { min: 0, max: 100 }
     });
-  }
-  handleSimple = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-  handleMultiple = event => {
-    this.setState({ multipleSelect: event.target.value });
-  };
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.checked });
-  };
-  handleTags(regularTags) {
-    this.setState({ tags: regularTags });
-  }
-  render() {
-    const { classes } = this.props;
+  }, [false]);
+
     return (
       <div>
         <GridContainer>
@@ -151,8 +177,8 @@ class ExtendedForms extends React.Component {
                       <FormControlLabel
                         control={
                           <Switch
-                            checked={this.state.checkedA}
-                            onChange={this.handleChange("checkedA")}
+                            // checked={this.state.checkedA}
+                            // onChange={this.handleChange("checkedA")}
                             value="checkedA"
                             classes={{
                               switchBase: classes.switchBase,
@@ -173,8 +199,8 @@ class ExtendedForms extends React.Component {
                       <FormControlLabel
                         control={
                           <Switch
-                            checked={this.state.checkedB}
-                            onChange={this.handleChange("checkedB")}
+                            // checked={this.state.checkedB}
+                            // onChange={this.handleChange("checkedB")}
                             value="checkedB"
                             classes={{
                               switchBase: classes.switchBase,
@@ -213,8 +239,9 @@ class ExtendedForms extends React.Component {
                             classes={{
                               select: classes.select
                             }}
-                            value={this.state.simpleSelect}
-                            onChange={this.handleSimple}
+                            value={""}
+                            // value={this.state.simpleSelect}
+                            // onChange={this.handleSimple}
                             inputProps={{
                               name: "simpleSelect",
                               id: "simple-select"
@@ -406,8 +433,9 @@ class ExtendedForms extends React.Component {
                           </InputLabel>
                           <Select
                             multiple
-                            value={this.state.multipleSelect}
-                            onChange={this.handleMultiple}
+                            value={[]}
+                            // value={this.state.multipleSelect}
+                            // onChange={this.handleMultiple}
                             MenuProps={{ className: classes.selectMenu }}
                             classes={{ select: classes.select }}
                             inputProps={{
@@ -597,8 +625,8 @@ class ExtendedForms extends React.Component {
                   <GridItem xs={12} sm={12} md={6}>
                     <legend>Tags</legend>
                     <TagsInput
-                      value={this.state.tags}
-                      onChange={this.handleTags}
+                      value={["pizza", "pasta", "parmesan"]}
+                      onChange={(tags) => console.dir(tags)}
                       tagProps={{ className: "react-tagsinput-tag info" }}
                     />
                   </GridItem>
@@ -606,7 +634,7 @@ class ExtendedForms extends React.Component {
                     <legend>Dropdown & Dropup</legend>
                     <GridContainer>
                       <GridItem xs={12} sm={6} md={6} lg={6}>
-                        <CustomDropdown
+                        <Dropdown
                           buttonText="Multilevel Dropdown"
                           hoverColor="info"
                           buttonProps={{
@@ -616,10 +644,9 @@ class ExtendedForms extends React.Component {
                           }}
                           dropPlacement="bottom"
                           dropdownList={[
-                            "Action",
-                            "Another action",
-                            <CustomDropdown
-                              ref="multi"
+                            {content: "Action"},
+                            {content: "Another action"},
+                            {multi: true, content: <Dropdown
                               innerDropDown
                               buttonText="Submenu"
                               hoverColor="info"
@@ -629,10 +656,9 @@ class ExtendedForms extends React.Component {
                               }}
                               dropPlacement="right-start"
                               dropdownList={[
-                                "Submenu action",
-                                "Submenu action",
-                                <CustomDropdown
-                                  ref="multi"
+                                {content: "Submenu action"},
+                                {content: "Submenu action"},
+                                {multi: true, content: <Dropdown
                                   innerDropDown
                                   hoverColor="info"
                                   buttonText="Subsubmenu"
@@ -641,12 +667,11 @@ class ExtendedForms extends React.Component {
                                   }}
                                   dropPlacement="right-start"
                                   dropdownList={[
-                                    "Subsubmenu action 1",
-                                    "Subsubmenu action 2"
+                                    {content: "Subsubmenu action 1"},
+                                    {content: "Subsubmenu action 2"},
                                   ]}
-                                />,
-                                <CustomDropdown
-                                  ref="multi"
+                                />},
+                                {multi: true, content: <Dropdown
                                   innerDropDown
                                   hoverColor="info"
                                   buttonText="Second Subsubmenu"
@@ -655,17 +680,17 @@ class ExtendedForms extends React.Component {
                                   }}
                                   dropPlacement="right-start"
                                   dropdownList={[
-                                    "Second Subsubmenu action 1",
-                                    "Second Subsubmenu action 2"
+                                    {content: "Second Subsubmenu action 1"},
+                                    {content: "Second Subsubmenu action 2"},
                                   ]}
-                                />
+                                />}
                               ]}
-                            />
+                            />}
                           ]}
                         />
                       </GridItem>
                       <GridItem xs={12} sm={6} md={6} lg={6}>
-                        <CustomDropdown
+                        <Dropdown
                           hoverColor="info"
                           buttonText="Dropdown"
                           buttonProps={{
@@ -676,13 +701,13 @@ class ExtendedForms extends React.Component {
                           }}
                           dropdownHeader="Dropdown header"
                           dropdownList={[
-                            "Action",
-                            "Another action",
-                            "Something else here",
-                            { divider: true },
-                            "Separated link",
-                            { divider: true },
-                            "One more separated link"
+                            {content: "Action"},
+                            {content: "Another action"},
+                            {content: "Something else here"},
+                            {divider: true },
+                            {content: "Separated link"},
+                            {divider: true },
+                            {content: "One more separated link"},
                           ]}
                         />
                       </GridItem>
@@ -693,7 +718,7 @@ class ExtendedForms extends React.Component {
                         lg={6}
                         className={`${classes.mrAuto} ${classes.mlAuto}`}
                       >
-                        <CustomDropdown
+                        <Dropdown
                           dropup
                           buttonText="Dropup"
                           hoverColor="info"
@@ -705,13 +730,13 @@ class ExtendedForms extends React.Component {
                           }}
                           dropdownHeader="Dropdown header"
                           dropdownList={[
-                            "Action",
-                            "Another action",
-                            "Something else here",
+                            {content: "Action"},
+                            {content: "Another action"},
+                            {content: "Something else here"},
                             { divider: true },
-                            "Separated link",
+                            {content: "Separated link"},
                             { divider: true },
-                            "One more separated link"
+                            {content: "One more separated link"},
                           ]}
                         />
                       </GridItem>
@@ -754,9 +779,9 @@ class ExtendedForms extends React.Component {
                   </GridItem>
                   <GridItem xs={12} sm={12} md={6}>
                     <legend>Sliders</legend>
-                    <div className="slider-primary" ref="slider1" />
+                    <div className="slider-primary" ref={ref => {slider1Ref = ref as HTMLElement}} />
                     <br />
-                    <div className="slider-info" ref="slider2" />
+                    <div className="slider-info" ref={ref => {slider2Ref = ref as HTMLElement}} />
                   </GridItem>
                 </GridContainer>
                 <GridContainer>
@@ -802,7 +827,7 @@ class ExtendedForms extends React.Component {
         </GridContainer>
       </div>
     );
-  }
-}
 
-export default withStyles(ExtendedFormsStyle)(ExtendedForms);
+});
+
+export default ExtendedForms;

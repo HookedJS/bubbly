@@ -1,38 +1,37 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-// https://material-ui.com/css-in-js/basics/
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 
-// @material-ui/icons
 import ExpandMore from "@material-ui/icons/ExpandMore";
 
 import { AccordionStyle } from "./AccordionStyle";
 
-class Accordion extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: props.active
-    };
+export const Accordion = withStyles(AccordionStyle)((
+  {
+    classes,
+    active = 0,
+    collapses
+  }: WithStyles<typeof AccordionStyle> & {
+    active?: number,
+    collapses: {title: string, content: React.ReactNode}[],
   }
-  handleChange = panel => (event, expanded) => {
-    this.setState({
-      active: expanded ? panel : -1
-    });
+) => {
+  const [activeLocal, setActiveLocal] = React.useState(active || -1);
+
+  const handleChange = (panel: number) => (event: React.ChangeEvent<any>, expanded: boolean) => {
+    setActiveLocal(expanded ? panel : -1);
   };
-  render() {
-    const { classes, collapses } = this.props;
+
     return (
       <div className={classes.root}>
         {collapses.map((prop, key) => {
           return (
             <ExpansionPanel
-              expanded={this.state.active === key}
-              onChange={this.handleChange(key)}
+              expanded={activeLocal === key}
+              onChange={handleChange(key)}
               key={key}
               classes={{
                 root: classes.expansionPanel,
@@ -58,23 +57,7 @@ class Accordion extends React.Component {
         })}
       </div>
     );
-  }
-}
 
-Accordion.defaultProps = {
-  active: -1
-};
+});
 
-Accordion.propTypes = {
-  classes: PropTypes.object.isRequired,
-  // index of the default active collapse
-  active: PropTypes.number,
-  collapses: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      content: PropTypes.node
-    })
-  ).isRequired
-};
-
-export default withStyles(AccordionStyle)(Accordion);
+export default Accordion;

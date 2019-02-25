@@ -2,11 +2,10 @@
 // // // ValidationForms view styles
 // #############################
 
-import { cardTitle, dangerColor } from "~/themes/bubbly/src/MainStyles";
-import { CustomCheckboxRadioSwitchStyle } from "~/themes/bubbly/src/components/modules/Form/CustomCheckboxRadioSwitchStyle";
+import { cardTitle, dangerColor } from "../../../../MainStyles";
+import { createStyles } from "@material-ui/core";
 
-export const ValidationFormsStyle = {
-  ...CustomCheckboxRadioSwitchStyle,
+export const ValidationFormsStyle = createStyles({
   cardTitle: {
     ...cardTitle,
     color: "#FFFFFF"
@@ -33,5 +32,8 @@ export const ValidationFormsStyle = {
   },
   danger: {
     color: dangerColor + "!important"
+  },
+  floatRight: {
+    float: "right"
   }
-};
+});

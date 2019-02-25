@@ -1,4 +1,6 @@
-export const CardFooterStyle = {
+import { createStyles } from "@material-ui/core/styles";
+
+export const CardFooterStyle = createStyles({
   cardFooter: {
     padding: "0",
     paddingTop: "10px",
@@ -19,7 +21,7 @@ export const CardFooterStyle = {
     backgroundColor: "transparent"
   },
   cardFooterPricing: {
-    zIndex: "2"
+    zIndex: 2
   },
   cardFooterTestimonial: {
     display: "block"
@@ -47,4 +49,4 @@ export const CardFooterStyle = {
   cardFooterChart: {
     borderTop: "1px solid #eee"
   }
-};
+});

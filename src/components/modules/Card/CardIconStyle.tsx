@@ -1,3 +1,4 @@
+import { createStyles } from "@material-ui/core/styles";
 import {
   warningCardHeader,
   successCardHeader,
@@ -5,8 +6,8 @@ import {
   infoCardHeader,
   primaryCardHeader,
   roseCardHeader
-} from "~/themes/bubbly/src/MainStyles";
-export const CardIconStyle = {
+} from "@bubbly/MainStyles";
+export const CardIconStyle = createStyles({
   cardIcon: {
     "&$warningCardHeader,&$successCardHeader,&$dangerCardHeader,&$infoCardHeader,&$primaryCardHeader,&$roseCardHeader": {
       borderRadius: "3px",
@@ -23,4 +24,4 @@ export const CardIconStyle = {
   infoCardHeader,
   primaryCardHeader,
   roseCardHeader
-};
+});

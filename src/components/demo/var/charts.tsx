@@ -266,7 +266,7 @@ const straightLinesChart = {
       bottom: 0,
       left: 0
     },
-    classNames: {
+    ClassNames: {
       point: "ct-point ct-white",
       line: "ct-line ct-white"
     }
