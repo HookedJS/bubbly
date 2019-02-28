@@ -10,6 +10,7 @@ import { CheckboxBlockStyle } from "./CheckboxBlockStyle";
 import Close from "@material-ui/icons/Close";
 import Check from "@material-ui/icons/Check";
 import { FormControlLabel } from "~/themes/bubbly/node_modules/@material-ui/core";
+import FormHelperText from "~/themes/bubbly/node_modules/@material-ui/core/FormHelperText/FormHelperText";
 
 export type CheckboxBlockProps = WithStyles<typeof CheckboxBlockStyle> & {
   fullWidth?: boolean,
@@ -18,7 +19,7 @@ export type CheckboxBlockProps = WithStyles<typeof CheckboxBlockStyle> & {
   label: React.ReactNode,
   success?: boolean,
   error?: boolean,
-  errorText: string,
+  helpText: string,
   checkboxProps?: Omit<CheckboxProps, "onClick">,
 };
 
@@ -32,18 +33,31 @@ export const CheckboxBlock = withStyles(CheckboxBlockStyle)((
     success,
     error,
     checkboxProps = {},
-    errorText,
+    helpText,
   }
     : WithStyles<typeof CheckboxBlockStyle> & CheckboxBlockProps
 ) => {
 
+  const checkboxBlockClasses = ClassNames({
+    [classes.checkboxBlock]: true,
+    [classes.fullWidth]: fullWidth,
+    [classes.inlineBlock]: !fullWidth
+  });
+  const labelClasses = ClassNames({
+    [classes.label]: true,
+    [classes.dangerColor]: error,
+    [classes.successColor]: success
+  });
+  const helpLabelClasses = ClassNames({
+    [classes.helpLabel]: true,
+    [classes.helpLabelEmpty]: !helpText,
+    [classes.dangerColor]: error,
+    [classes.successColor]: success && !error
+  });
+
   return (
     <div
-      className={ClassNames({
-        [classes.checkboxBlock]: true,
-        [classes.fullWidth]: fullWidth,
-        [classes.inlineBlock]: !fullWidth
-      })}
+      className={checkboxBlockClasses}
     >
       <FormControlLabel
         control={
@@ -60,23 +74,18 @@ export const CheckboxBlock = withStyles(CheckboxBlockStyle)((
           />
         }
         classes={{
-          label: ClassNames({
-            [classes.label]: true,
-            [classes.colorDanger]: error,
-            [classes.colorSuccess]: success
-          })
+          label: labelClasses
         }}
         label={label}
       />
-      {error && (
-        <React.Fragment>
-          <Close className={classes.statusIcon + " " + classes.colorDanger} />
-          <label className={classes.errorLabel}>{errorText}</label>
-        </React.Fragment>
-      )}
-      {success && <Check className={classes.statusIcon + " " + classes.colorSuccess} />}
+
+      <FormHelperText className={helpLabelClasses}>
+        {helpText || "\u00A0"}
+      </FormHelperText>
+
+      {fullWidth && error && <Close className={classes.statusIcon + " " + classes.dangerColor} />}
+      {fullWidth && success && <Check className={classes.statusIcon + " " + classes.successColor} />}
+
     </div>
   );
 });
-
-export default CheckboxBlock;

@@ -8,17 +8,16 @@ import {
 
 export const CheckboxBlockStyle = createStyles({
   checkboxBlock: {
-    paddingBottom: 40,
-  },
-  radioBlock: {
     position: "relative",
-    paddingBottom: 40,
+    paddingBottom: 30,
+    marginRight: 12,
   },
   fullWidth: {
     width: "100%",
+    marginRight: 0,
   },
   inlineBlock: {
-    display: "inline-block"
+    display: "inline-table"
   },
   checkRoot: {
     padding: "0 14px"
@@ -65,24 +64,27 @@ export const CheckboxBlockStyle = createStyles({
     display: "inline-flex",
     transition: "0.3s ease all"
   },
-  colorDanger: {
+  dangerColor: {
     color: dangerColor
   },
-  colorSuccess: {
+  successColor: {
     color: successColor
   },
-  errorLabel: {
+  helpLabel: {
     display: "block",
-    color: dangerColor,
+    // color: dangerColor,
     borderTop: "1px solid #ccc",
     marginTop: 4,
-    marginBottom: -26,
+    // marginBottom: -26,
     paddingTop: 4,
     fontSize: "0.75rem",
     fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif"
   },
-  errorLabelRadio: {
-    marginTop: -8,
+  helpLabelEmpty: {
+    borderTop: "1px solid rgba(0,0,0,0)",
+  },
+  helpLabelRadio: {
+    marginTop: -10,
   },
   radio: {
     color: primaryColor + "!important"
@@ -136,38 +138,9 @@ export const CheckboxBlockStyle = createStyles({
     fontSize: "40px",
     lineHeight: "111px"
   },
-  switchBase: {
-    color: primaryColor + "!important"
-  },
-  switchIcon: {
-    boxShadow: "0 1px 3px 1px rgba(0, 0, 0, 0.4)",
-    color: "#FFFFFF !important",
-    border: "1px solid rgba(0, 0, 0, .54)",
-    transform: "translateX(-4px)!important"
-  },
-  switchIconChecked: {
-    borderColor: "#9c27b0",
-    transform: "translateX(0px)!important"
-  },
-  switchBar: {
-    width: "30px",
-    height: "15px",
-    backgroundColor: "rgb(80, 80, 80)",
-    borderRadius: "15px",
-    // @ts-ignore: Typescript gets confused about a CSSProperty
-    opacity: "0.7!important"
-  },
-  switchChecked: {
-    "& + $switchBar": {
-      backgroundColor: "rgba(156, 39, 176, 1) !important"
-    }
-  },
   statusIcon: {
-    float: "right",
-  },
-  statusIconRadio: {
     position: "absolute",
     top: 0,
     right: 0,
-  }
+  },
 });

@@ -1,7 +1,18 @@
 import { createStyles } from "@material-ui/core/styles";
-import { primaryColor, primaryBoxShadow } from "@bubbly/MainStyles";
+import { primaryColor, primaryBoxShadow, dangerColor, successColor } from "@bubbly/MainStyles";
 
-export const CustomSelectStyle = createStyles({
+export const SelectBlockStyle = createStyles({
+  selectBlock: {
+    paddingBottom: 15
+  },
+  selectBlockNoOuterLabel: {
+    marginTop: -24,
+  },
+  fullWidth: {
+    width: "100%",
+    marginRight: 0,
+  },
+
   select: {
     padding: "12px 0 7px",
     fontSize: ".75rem",
@@ -22,7 +33,7 @@ export const CustomSelectStyle = createStyles({
     }
   },
   selectFormControl: {
-    margin: "10px 1px 10px 0px !important",
+    margin: "0 0 10px 0 !important",
     "& > div": {
       "&:before": {
         borderBottomWidth: "1px !important",
@@ -33,7 +44,7 @@ export const CustomSelectStyle = createStyles({
       }
     }
   },
-  selectLabel: {
+  label: {
     fontSize: "12px",
     textTransform: "uppercase",
     color: "#3C4858 !important",
@@ -125,5 +136,22 @@ export const CustomSelectStyle = createStyles({
     listStyle: "none",
     backgroundColor: "transparent",
     maxHeight: "266px"
-  }
+  },
+
+  helpLabel: {
+    display: "block",
+    // color: dangerColor,
+    marginTop: -10,
+    // marginBottom: -10,
+    paddingTop: 4,
+    fontSize: "0.75rem",
+    fontFamily: "\"Roboto\", \"Helvetica\", \"Arial\", sans-serif"
+  },
+
+  dangerColor: {
+    color: dangerColor + "!important"
+  },
+  successColor: {
+    color: successColor + "!important"
+  },
 });

@@ -3,12 +3,12 @@
 // #############################
 
 import { cardTitle } from "@bubbly/MainStyles";
-import { CustomSelectStyle } from "@bubbly/components/modules/Form/CustomSelectStyle";
+import { SelectBlockStyle } from "@bubbly/components/modules/Form/SelectBlockStyle";
 import { CheckboxBlockStyle } from "@bubbly/components/modules/Form/CheckboxBlockStyle";
 
 export const ExtendedFormsStyle = {
   ...CheckboxBlockStyle,
-  ...CustomSelectStyle,
+  ...SelectBlockStyle,
   cardTitle,
   cardIconTitle: {
     ...cardTitle,

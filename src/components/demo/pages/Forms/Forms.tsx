@@ -15,7 +15,7 @@ import { ValidationFormsStyle } from "./ValidationFormsStyle";
 import { StackedForm } from "./StackedForm";
 import { HorizontalForm } from "./HorizontalForm";
 import { CardBlock } from "../../../modules/Card/CardBlock";
-import BigForm from "@bubbly/components/demo/pages/Forms/BigForm";
+import {BigForm} from "@bubbly/components/demo/pages/Forms/BigForm";
 
 type ValidationFormsProps = WithStyles<typeof ValidationFormsStyle> & {}
 

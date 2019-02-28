@@ -5,13 +5,13 @@ import EmailIcon from "@material-ui/icons/Email";
 
 import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
-import Button from "../../../modules/Buttons/Button";
+import {Button} from "../../../modules/Buttons/Button";
 
 import { CheckboxBlock } from "../../../modules/Form/CheckboxBlock";
 
 import { HorizontalFormStyle } from "./HorizontalFormStyle";
-import InputBlock from "../../../modules/Form/InputBlock";
-import HorizontalBlock from "@bubbly/components/modules/Form/HorizontalBlock";
+import {InputBlock} from "../../../modules/Form/InputBlock";
+import {HorizontalBlock} from "@bubbly/components/modules/Form/HorizontalBlock";
 import { Link } from "~/themes/bubbly/node_modules/@material-ui/core";
 import { EmailAddressRe, PasswordRe } from "~/core/utils/Validators";
 
@@ -87,7 +87,7 @@ export const HorizontalForm = withStyles(HorizontalFormStyle)((
           label={<span>I agree to the <Link color="inherit" underline="always" href="#">terms of service</Link></span>}
           success={showErrors && newsletter}
           error={showErrors && !newsletter}
-          errorText={showErrors ? "Checking is required." : ""}
+          helpText={showErrors ? "Checking is required." : ""}
           fullWidth={true}
         />
         <Button color="rose" onClick={onSubmitLocal} className={classes.registerButton}>

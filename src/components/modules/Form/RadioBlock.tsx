@@ -13,15 +13,16 @@ import FiberManualRecord from "@material-ui/icons/FiberManualRecord";
 
 
 import { CheckboxBlockStyle } from "./CheckboxBlockStyle";
+import FormHelperText from "~/themes/bubbly/node_modules/@material-ui/core/FormHelperText/FormHelperText";
 
 export type RadioBlockProps = WithStyles<typeof CheckboxBlockStyle> & {
   options: { label: string, value: any }[],
-  value?: any | null,
+  value: any,
   onChange: (value: any) => any,
   error?: boolean,
   success?: boolean,
   fullWidth?: boolean,
-  errorText: string,
+  helpText: string,
 }
 
 export const RadioBlock = withStyles(CheckboxBlockStyle)((
@@ -33,18 +34,32 @@ export const RadioBlock = withStyles(CheckboxBlockStyle)((
     error,
     success,
     fullWidth,
-    errorText,
+    helpText = "",
   }
     : RadioBlockProps
 ) => {
 
+  const radioBlockClasses = ClassNames({
+    [classes.checkboxBlock]: true,
+    [classes.fullWidth]: fullWidth,
+    [classes.inlineBlock]: !fullWidth
+  });
+  const labelClasses = ClassNames({
+    [classes.label]: true,
+    [classes.dangerColor]: error,
+    [classes.successColor]: success,
+  });
+  const helpLabelClasses = ClassNames({
+    [classes.helpLabel]: true,
+    [classes.helpLabelRadio]: true,
+    [classes.helpLabelEmpty]: !helpText,
+    [classes.dangerColor]: error,
+    [classes.successColor]: success && !error
+  });
+
   return (
     <div
-      className={ClassNames({
-        [classes.radioBlock]: true,
-        [classes.fullWidth]: fullWidth,
-        [classes.inlineBlock]: !fullWidth
-      })}
+      className={radioBlockClasses}
     >
       {options.map((o, i) => (
         <div
@@ -75,26 +90,20 @@ export const RadioBlock = withStyles(CheckboxBlockStyle)((
               />
             }
             classes={{
-              label: ClassNames({
-                [classes.label]: true,
-                [classes.colorDanger]: error,
-                [classes.colorSuccess]: success,
-              })
+              label: labelClasses
             }}
             label={o.label}
           />
         </div>
       ))}
-      {error && (
-        <React.Fragment>
-          <Close className={classes.statusIconRadio + " " + classes.colorDanger} />
-          <label className={classes.errorLabel + " " + classes.errorLabelRadio}>{errorText}</label>
-        </React.Fragment>
-      )}
-      {success && <Check className={classes.statusIconRadio + " " + classes.colorSuccess} />}
+
+      <FormHelperText className={helpLabelClasses}>
+        {helpText || "\u00A0"}
+      </FormHelperText>
+
+      {fullWidth && error && <Close className={classes.statusIcon + " " + classes.dangerColor} />}
+      {fullWidth && success && <Check className={classes.statusIcon + " " + classes.successColor} />}
     </div>
   );
 
 });
-
-export default RadioBlock;

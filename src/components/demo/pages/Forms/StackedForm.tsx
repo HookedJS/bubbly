@@ -5,12 +5,12 @@ import EmailIcon from "@material-ui/icons/Email";
 
 import withStyles, { WithStyles } from "@material-ui/core/styles/withStyles";
 
-import Button from "../../../modules/Buttons/Button";
+import {Button} from "../../../modules/Buttons/Button";
 
 import { CheckboxBlock } from "../../../modules/Form/CheckboxBlock";
 
 import { StackedFormStyle } from "./StackedFormStyle";
-import InputBlock from "../../../modules/Form/InputBlock";
+import {InputBlock} from "../../../modules/Form/InputBlock";
 import { EmailAddressRe, PasswordRe } from "~/core/utils/Validators";
 import { Link } from "~/themes/bubbly/node_modules/@material-ui/core";
 
@@ -83,7 +83,7 @@ export const StackedForm = withStyles(StackedFormStyle)((
         label={<span>I agree to the <Link color="inherit" underline="always" href="#">terms of service</Link></span>}
         success={showErrors && newsletter}
         error={showErrors && !newsletter}
-        errorText={showErrors ? "Checking is required." : ""}
+        helpText={showErrors ? "Checking is required." : ""}
       />
       <Button color="rose" onClick={onSubmitLocal} className={classes.registerButton}>
         Register
@@ -93,11 +93,4 @@ export const StackedForm = withStyles(StackedFormStyle)((
   );
 
 });
-
-// RegisterForm.propTypes = {
-//   classes: PropTypes.object.isRequired,
-//   isValidCallback: PropTypes.func.isRequired,
-// };
-
-export default StackedForm;
 

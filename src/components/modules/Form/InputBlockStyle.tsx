@@ -8,19 +8,24 @@ import {
 
 export const InputBlockStyle = createStyles({
   inputBlock: {
-    paddingBottom: 14,
+    position: "relative",
+    paddingBottom: 16,
+    marginRight: 12,
   },
   inputBlockNoLabel: {
-    paddingBottom: 6,
+    paddingBottom: 36,
+  },
+  inputBackground: {
+    // position: "absolute",
+    // backgroundColor: "#ddd",
+    // top: 10,
+    // left: 0,
+    // right: 0,
+    // bottom: 34,
   },
   fullWidth: {
     width: "100%",
-  },
-  danger: {
-    color: dangerColor + "!important"
-  },
-  success: {
-    color: successColor + "!important"
+    marginRight: 0,
   },
   disabled: {
     "&:before": {
@@ -94,7 +99,7 @@ export const InputBlockStyle = createStyles({
     },
     "&::placeholder": {
       color: "#AAAAAA"
-    }
+    },
   },
   inputNoLabel: {
     padding: "0 0 7px"
@@ -108,7 +113,7 @@ export const InputBlockStyle = createStyles({
   },
   helpText: {
     marginTop: 6,
-    marginBottom: -2,
+    // marginBottom: -2,
   },
   inputAdornment: {},
   inputAdornmentNoLabel: {
@@ -135,5 +140,12 @@ export const InputBlockStyle = createStyles({
       color: "#AAAAAA"
     },
     padding: "0 0 0 !important",
-  }
+  },
+
+  dangerColor: {
+    color: dangerColor + "!important"
+  },
+  successColor: {
+    color: successColor + "!important"
+  },
 });

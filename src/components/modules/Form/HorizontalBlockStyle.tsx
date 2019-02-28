@@ -2,7 +2,7 @@ import { createStyles } from "@material-ui/core/styles";
 
 export const HorizontalBlockStyle = createStyles({
   wrapper: {
-    paddingBottom: 30,
+    // paddingBottom: 30,
   },
   label: {
     color: "rgba(0, 0, 0, 0.26)",

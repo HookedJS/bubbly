@@ -86,8 +86,8 @@ export const InputBlock = withStyles(InputBlockStyle)((
   });
   const helpTextClasses = ClassNames({
     [classes.helpText]: true,
-    [classes.danger]: error,
-    [classes.success]: success && !error
+    [classes.dangerColor]: error,
+    [classes.successColor]: success && !error
   });
   const inputAdornmentClasses = ClassNames({
     [classes.inputAdornment]: true,
@@ -107,7 +107,7 @@ export const InputBlock = withStyles(InputBlockStyle)((
   if (error) {
     inputProps.endAdornment = (
       <InputAdornment position={iconPosition} className={inputAdornmentClasses}>
-        <Close className={classes.danger}/>
+        <Close className={classes.dangerColor}/>
       </InputAdornment>
     );
   }
@@ -115,13 +115,14 @@ export const InputBlock = withStyles(InputBlockStyle)((
   if (success) {
     inputProps.endAdornment = (
       <InputAdornment position={iconPosition} className={inputAdornmentClasses}>
-        <Check className={classes.success}/>
+        <Check className={classes.successColor}/>
       </InputAdornment>
     );
   }
 
   return (
     <div className={inputBlockClasses}>
+      <div className={classes.inputBackground}/>
       <FormControl fullWidth={fullWidth}>
         {labelText !== undefined ? (
           <InputLabel
@@ -146,7 +147,7 @@ export const InputBlock = withStyles(InputBlockStyle)((
           {...inputProps}
         />
         <FormHelperText id={id + "-text"} className={helpTextClasses}>
-          {helpText}
+          {helpText || "\u00A0"}
         </FormHelperText>
       </FormControl>
     </div>
